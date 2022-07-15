@@ -5,6 +5,7 @@ public class Launcher {
 	public static void main(String[] args) {
 		
 		//Welcome to P1! 
+		System.out.println("Hello");
 		
 		//If you're reading this, you've successfully cloned your repo and imported the template
 		

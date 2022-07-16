@@ -7,7 +7,6 @@ public class Reimbursement {
 	private int reimbursement_amount;
 	private Timestamp reimbursement_submitted;
 	private String reimbursement_description;
-	private ReimbursementStatus reimbursement_status;
 	private ReimbursementType reimbursement_type;
 	private int reimbursement_author_fk;
 	private int reimbursement_resolver_fk;
@@ -25,15 +24,13 @@ public class Reimbursement {
 
 
 	public Reimbursement(int reimbursement_id, int reimbursement_amount, Timestamp reimbursement_submitted,
-			String reimbursement_description, ReimbursementStatus reimbursement_status,
-			ReimbursementType reimbursement_type, int reimbursement_author_fk, int reimbursement_resolver_fk,
-			ReimbursementResolution reimbursement_resolution) {
+			String reimbursement_description, ReimbursementType reimbursement_type, int reimbursement_author_fk, 
+			int reimbursement_resolver_fk, ReimbursementResolution reimbursement_resolution) {
 		super();
 		this.reimbursement_id = reimbursement_id;
 		this.reimbursement_amount = reimbursement_amount;
 		this.reimbursement_submitted = reimbursement_submitted;
 		this.reimbursement_description = reimbursement_description;
-		this.reimbursement_status = reimbursement_status;
 		this.reimbursement_type = reimbursement_type;
 		this.reimbursement_author_fk = reimbursement_author_fk;
 		this.reimbursement_resolver_fk = reimbursement_resolver_fk;
@@ -42,13 +39,12 @@ public class Reimbursement {
 
 
 	public Reimbursement(int reimbursement_amount, Timestamp reimbursement_submitted, String reimbursement_description,
-			ReimbursementStatus reimbursement_status, ReimbursementType reimbursement_type, int reimbursement_author_fk,
+			ReimbursementType reimbursement_type, int reimbursement_author_fk,
 			int reimbursement_resolver_fk, ReimbursementResolution reimbursement_resolution) {
 		super();
 		this.reimbursement_amount = reimbursement_amount;
 		this.reimbursement_submitted = reimbursement_submitted;
 		this.reimbursement_description = reimbursement_description;
-		this.reimbursement_status = reimbursement_status;
 		this.reimbursement_type = reimbursement_type;
 		this.reimbursement_author_fk = reimbursement_author_fk;
 		this.reimbursement_resolver_fk = reimbursement_resolver_fk;
@@ -60,7 +56,7 @@ public class Reimbursement {
 	public String toString() {
 		return "Reimbursement [reimbursement_id=" + reimbursement_id + ", reimbursement_amount=" + reimbursement_amount
 				+ ", reimbursement_submitted=" + reimbursement_submitted + ", reimbursement_description="
-				+ reimbursement_description + ", reimbursement_status=" + reimbursement_status + ", reimbursement_type="
+				+ reimbursement_description + ", reimbursement_type="
 				+ reimbursement_type + ", reimbursement_author_fk=" + reimbursement_author_fk
 				+ ", reimbursement_resolver_fk=" + reimbursement_resolver_fk + ", reimbursement_resolution="
 				+ reimbursement_resolution + "]";
@@ -104,16 +100,6 @@ public class Reimbursement {
 
 	public void setReimbursement_description(String reimbursement_description) {
 		this.reimbursement_description = reimbursement_description;
-	}
-
-
-	public ReimbursementStatus getReimbursement_status() {
-		return reimbursement_status;
-	}
-
-
-	public void setReimbursement_status(ReimbursementStatus reimbursement_status) {
-		this.reimbursement_status = reimbursement_status;
 	}
 
 

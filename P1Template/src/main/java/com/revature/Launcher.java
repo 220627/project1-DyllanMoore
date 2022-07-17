@@ -43,9 +43,9 @@ public class Launcher {
 		app.put("/updatetype/:reimbursementId", rc.updateReimbursementTypeHandler);
 		app.put("/updateresolution/:reimbursementId", rc.updateReimbursementResolutionHandler);
 		app.get("/reimbursement", rc.getReimbursementHandler);
-		app.get("/reimbursement/:reimbursementStatus", rc.getReimbursementByStatusHandler);
-		app.get("/reimbursement/:authorId", rc.getReimbursementByAuthorHandler);
-		app.get("reimbursement/:resolverId", rc.getReimbursementByResolverHandler);
+		app.get("/reimbursementstatus/:resolution", rc.getReimbursementByStatusHandler);
+		app.get("/reimbursementauthor/:authorId", rc.getReimbursementByAuthorHandler);
+		app.get("reimbursementresolver/:resolverId", rc.getReimbursementByResolverHandler);
 
 		
 		//User Actions

@@ -149,8 +149,8 @@ public class ReimbursementDAO implements ReimbursementDAOInterface{
 				Reimbursement r = new Reimbursement(
 						rs.getInt("reimbursement_id"),
 						rs.getInt("reimbursement_amount"),
-						rs.getTimestamp("reimbursment_submitted"),
-						rs.getString("reimbursment_description"),
+						rs.getTimestamp("reimbursement_submitted"),
+						rs.getString("reimbursement_description"),
 						null, null, null, null
 						);
 				
@@ -207,8 +207,8 @@ public class ReimbursementDAO implements ReimbursementDAOInterface{
 				Reimbursement r = new Reimbursement(
 						rs.getInt("reimbursement_id"),
 						rs.getInt("reimbursement_amount"),
-						rs.getTimestamp("reimbursment_submitted"),
-						rs.getString("reimbursment_description"),
+						rs.getTimestamp("reimbursement_submitted"),
+						rs.getString("reimbursement_description"),
 						null, null, null, null
 						);
 				
@@ -246,7 +246,7 @@ public class ReimbursementDAO implements ReimbursementDAOInterface{
 			
 		} catch(SQLException e) {
 			System.out.println("Get Reimbursements By Resolution Failed");
-			e.getStackTrace();
+			e.printStackTrace();
 		}
 		return null;
 	}
@@ -265,8 +265,8 @@ public class ReimbursementDAO implements ReimbursementDAOInterface{
 				Reimbursement r = new Reimbursement(
 						rs.getInt("reimbursement_id"),
 						rs.getInt("reimbursement_amount"),
-						rs.getTimestamp("reimbursment_submitted"),
-						rs.getString("reimbursment_description"),
+						rs.getTimestamp("reimbursement_submitted"),
+						rs.getString("reimbursement_description"),
 						null, null, null, null
 						);
 				
@@ -304,7 +304,7 @@ public class ReimbursementDAO implements ReimbursementDAOInterface{
 			
 		} catch(SQLException e) {
 			System.out.println("Get Reimbursements By Author Failed");
-			e.getStackTrace();
+			e.printStackTrace();
 		}
 		return null;
 	}
@@ -323,8 +323,8 @@ public class ReimbursementDAO implements ReimbursementDAOInterface{
 				Reimbursement r = new Reimbursement(
 						rs.getInt("reimbursement_id"),
 						rs.getInt("reimbursement_amount"),
-						rs.getTimestamp("reimbursment_submitted"),
-						rs.getString("reimbursment_description"),
+						rs.getTimestamp("reimbursement_submitted"),
+						rs.getString("reimbursement_description"),
 						null, null, null, null
 						);
 				
@@ -362,7 +362,7 @@ public class ReimbursementDAO implements ReimbursementDAOInterface{
 			
 		} catch(SQLException e) {
 			System.out.println("Get Reimbursements By Resolvers Failed");
-			e.getStackTrace();
+			e.printStackTrace();
 		}
 		return null;
 	}

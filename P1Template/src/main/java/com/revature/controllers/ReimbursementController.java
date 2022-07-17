@@ -83,8 +83,8 @@ public class ReimbursementController {
 	};
 	
 	public Handler getReimbursementByStatusHandler = (ctx) -> {
-		int resolutionId = Integer.parseInt(ctx.pathParam("reimbursementStatus"));
-		ArrayList<Reimbursement> reimbursement = rDAO.getReimbursementByStatus(resolutionId);
+		int resolution = Integer.parseInt(ctx.pathParam("resolution"));
+		ArrayList<Reimbursement> reimbursement = rDAO.getReimbursementByStatus(resolution);
 		Gson gson = new Gson();
 		String Jsonreimbursement = gson.toJson(reimbursement);
 		ctx.result(Jsonreimbursement);

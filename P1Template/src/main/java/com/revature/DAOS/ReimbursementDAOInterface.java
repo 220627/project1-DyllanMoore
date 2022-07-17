@@ -22,10 +22,12 @@ public interface ReimbursementDAOInterface {
 	
 	//Get Reimbursements
 	ArrayList<Reimbursement> getReimbursement();
+		
+	ArrayList<Reimbursement> getReimbursementByStatus(int resolution);
 	
-	ArrayList<Reimbursement> getReimbursementByStatus();
+	ArrayList<Reimbursement> getReimbursementByAuthor(int author);
 	
-	ArrayList<Reimbursement> getReimbursementByAuthor();
+	ArrayList<Reimbursement> getReimbursementByResolver(int resolver);
+
 	
-	ArrayList<Reimbursement> getReimbursementByResolver();
 }

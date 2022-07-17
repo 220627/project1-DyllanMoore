@@ -9,6 +9,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import com.revature.models.Reimbursement;
+import com.revature.models.ReimbursementAuthor;
+import com.revature.models.ReimbursementResolution;
+import com.revature.models.ReimbursementResolver;
 import com.revature.models.ReimbursementType;
 import com.revature.utils.ConnectionUtil;
 
@@ -158,12 +161,30 @@ public class ReimbursementDAO implements ReimbursementDAOInterface{
 				r.setReimbursememnt_resolution_fk(reimbursement_type_fk);
 				reimbursementList.add(r);
 
+				int reimbursement_author_fk = rs.getInt("reimbursement_author_fk");
+				ReimbursementAuthorDAO raDAO = new ReimbursementAuthorDAO();
+				ReimbursementAuthor ra = raDAO.getAuthorById(reimbursement_author_fk);
+				r.setReimbursement_author(ra);
+				r.setReimbursement_author_fk(reimbursement_author_fk);
+				reimbursementList.add(r);
+					
+				int reimbursement_resolver_fk = rs.getInt("reimbursement_resolver_fk");
+				ReimbursementResolverDAO rrDAO = new ReimbursementResolverDAO();
+				ReimbursementResolver rr = rrDAO.getResolverById(reimbursement_resolver_fk);
+				r.setReimbursement_resolver(rr);
+				r.setReimbursement_resolver_fk(reimbursement_resolver_fk);
+				reimbursementList.add(r);
 				
+				int reimbursement_resolution_fk = rs.getInt("reimbursement_resolution_fk");
+				ReimbursementResolutionDAO resDAO = new ReimbursementResolutionDAO();
+				ReimbursementResolution res = resDAO.getResolutionById(reimbursement_resolution_fk);
+				r.setReimbursement_resolution(res);
+				r.setReimbursememnt_resolution_fk(reimbursement_resolution_fk);
+				reimbursementList.add(r);
 				
 			}
 			
 			return reimbursementList;
-			
 			
 		} catch(SQLException e) {
 			System.out.println("Get All Reimbursements Failed");
@@ -173,20 +194,176 @@ public class ReimbursementDAO implements ReimbursementDAOInterface{
 	}
 
 	@Override
-	public ArrayList<Reimbursement> getReimbursementByStatus() {
-		// TODO Auto-generated method stub
+	public ArrayList<Reimbursement> getReimbursementByStatus(int resolution) {
+		try(Connection conn = ConnectionUtil.getConnection()) {
+			String sql = "select * from reimbursements where reimbursement_resolution_fk = ?;";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, resolution);
+			Statement s = conn.createStatement();
+			ResultSet rs = s.executeQuery(sql);
+			ArrayList<Reimbursement> reimbursementList = new ArrayList<>();
+			
+			while(rs.next()) {
+				Reimbursement r = new Reimbursement(
+						rs.getInt("reimbursement_id"),
+						rs.getInt("reimbursement_amount"),
+						rs.getTimestamp("reimbursment_submitted"),
+						rs.getString("reimbursment_description"),
+						null, null, null, null
+						);
+				
+				int reimbursement_type_fk = rs.getInt("reimbursement_type_fk");
+				ReimbursementTypeDAO rtDAO = new ReimbursementTypeDAO();
+				ReimbursementType rt = rtDAO.getTypeById(reimbursement_type_fk);
+				r.setReimbursement_type(rt);
+				r.setReimbursememnt_resolution_fk(reimbursement_type_fk);
+				reimbursementList.add(r);
+
+				int reimbursement_author_fk = rs.getInt("reimbursement_author_fk");
+				ReimbursementAuthorDAO raDAO = new ReimbursementAuthorDAO();
+				ReimbursementAuthor ra = raDAO.getAuthorById(reimbursement_author_fk);
+				r.setReimbursement_author(ra);
+				r.setReimbursement_author_fk(reimbursement_author_fk);
+				reimbursementList.add(r);
+					
+				int reimbursement_resolver_fk = rs.getInt("reimbursement_resolver_fk");
+				ReimbursementResolverDAO rrDAO = new ReimbursementResolverDAO();
+				ReimbursementResolver rr = rrDAO.getResolverById(reimbursement_resolver_fk);
+				r.setReimbursement_resolver(rr);
+				r.setReimbursement_resolver_fk(reimbursement_resolver_fk);
+				reimbursementList.add(r);
+				
+				int reimbursement_resolution_fk = rs.getInt("reimbursement_resolution_fk");
+				ReimbursementResolutionDAO resDAO = new ReimbursementResolutionDAO();
+				ReimbursementResolution res = resDAO.getResolutionById(reimbursement_resolution_fk);
+				r.setReimbursement_resolution(res);
+				r.setReimbursememnt_resolution_fk(reimbursement_resolution_fk);
+				reimbursementList.add(r);
+				
+			}
+			
+			return reimbursementList;
+			
+		} catch(SQLException e) {
+			System.out.println("Get Reimbursements By Resolution Failed");
+			e.getStackTrace();
+		}
 		return null;
 	}
 
 	@Override
-	public ArrayList<Reimbursement> getReimbursementByAuthor() {
-		// TODO Auto-generated method stub
+	public ArrayList<Reimbursement> getReimbursementByAuthor(int author) {
+		try(Connection conn = ConnectionUtil.getConnection()) {
+			String sql = "select * from reimbursements where reimbursement_author_fk = ?;";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, author);
+			Statement s = conn.createStatement();
+			ResultSet rs = s.executeQuery(sql);
+			ArrayList<Reimbursement> reimbursementList = new ArrayList<>();
+			
+			while(rs.next()) {
+				Reimbursement r = new Reimbursement(
+						rs.getInt("reimbursement_id"),
+						rs.getInt("reimbursement_amount"),
+						rs.getTimestamp("reimbursment_submitted"),
+						rs.getString("reimbursment_description"),
+						null, null, null, null
+						);
+				
+				int reimbursement_type_fk = rs.getInt("reimbursement_type_fk");
+				ReimbursementTypeDAO rtDAO = new ReimbursementTypeDAO();
+				ReimbursementType rt = rtDAO.getTypeById(reimbursement_type_fk);
+				r.setReimbursement_type(rt);
+				r.setReimbursememnt_resolution_fk(reimbursement_type_fk);
+				reimbursementList.add(r);
+
+				int reimbursement_author_fk = rs.getInt("reimbursement_author_fk");
+				ReimbursementAuthorDAO raDAO = new ReimbursementAuthorDAO();
+				ReimbursementAuthor ra = raDAO.getAuthorById(reimbursement_author_fk);
+				r.setReimbursement_author(ra);
+				r.setReimbursement_author_fk(reimbursement_author_fk);
+				reimbursementList.add(r);
+					
+				int reimbursement_resolver_fk = rs.getInt("reimbursement_resolver_fk");
+				ReimbursementResolverDAO rrDAO = new ReimbursementResolverDAO();
+				ReimbursementResolver rr = rrDAO.getResolverById(reimbursement_resolver_fk);
+				r.setReimbursement_resolver(rr);
+				r.setReimbursement_resolver_fk(reimbursement_resolver_fk);
+				reimbursementList.add(r);
+				
+				int reimbursement_resolution_fk = rs.getInt("reimbursement_resolution_fk");
+				ReimbursementResolutionDAO resDAO = new ReimbursementResolutionDAO();
+				ReimbursementResolution res = resDAO.getResolutionById(reimbursement_resolution_fk);
+				r.setReimbursement_resolution(res);
+				r.setReimbursememnt_resolution_fk(reimbursement_resolution_fk);
+				reimbursementList.add(r);
+				
+			}
+			
+			return reimbursementList;
+			
+		} catch(SQLException e) {
+			System.out.println("Get Reimbursements By Author Failed");
+			e.getStackTrace();
+		}
 		return null;
 	}
 
 	@Override
-	public ArrayList<Reimbursement> getReimbursementByResolver() {
-		// TODO Auto-generated method stub
+	public ArrayList<Reimbursement> getReimbursementByResolver(int resolver) {
+		try(Connection conn = ConnectionUtil.getConnection()) {
+			String sql = "select * from reimbursements where reimbursement_resolver_id = ?;";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, resolver);
+			Statement s = conn.createStatement();
+			ResultSet rs = s.executeQuery(sql);
+			ArrayList<Reimbursement> reimbursementList = new ArrayList<>();
+			
+			while(rs.next()) {
+				Reimbursement r = new Reimbursement(
+						rs.getInt("reimbursement_id"),
+						rs.getInt("reimbursement_amount"),
+						rs.getTimestamp("reimbursment_submitted"),
+						rs.getString("reimbursment_description"),
+						null, null, null, null
+						);
+				
+				int reimbursement_type_fk = rs.getInt("reimbursement_type_fk");
+				ReimbursementTypeDAO rtDAO = new ReimbursementTypeDAO();
+				ReimbursementType rt = rtDAO.getTypeById(reimbursement_type_fk);
+				r.setReimbursement_type(rt);
+				r.setReimbursememnt_resolution_fk(reimbursement_type_fk);
+				reimbursementList.add(r);
+
+				int reimbursement_author_fk = rs.getInt("reimbursement_author_fk");
+				ReimbursementAuthorDAO raDAO = new ReimbursementAuthorDAO();
+				ReimbursementAuthor ra = raDAO.getAuthorById(reimbursement_author_fk);
+				r.setReimbursement_author(ra);
+				r.setReimbursement_author_fk(reimbursement_author_fk);
+				reimbursementList.add(r);
+					
+				int reimbursement_resolver_fk = rs.getInt("reimbursement_resolver_fk");
+				ReimbursementResolverDAO rrDAO = new ReimbursementResolverDAO();
+				ReimbursementResolver rr = rrDAO.getResolverById(reimbursement_resolver_fk);
+				r.setReimbursement_resolver(rr);
+				r.setReimbursement_resolver_fk(reimbursement_resolver_fk);
+				reimbursementList.add(r);
+				
+				int reimbursement_resolution_fk = rs.getInt("reimbursement_resolution_fk");
+				ReimbursementResolutionDAO resDAO = new ReimbursementResolutionDAO();
+				ReimbursementResolution res = resDAO.getResolutionById(reimbursement_resolution_fk);
+				r.setReimbursement_resolution(res);
+				r.setReimbursememnt_resolution_fk(reimbursement_resolution_fk);
+				reimbursementList.add(r);
+				
+			}
+			
+			return reimbursementList;
+			
+		} catch(SQLException e) {
+			System.out.println("Get Reimbursements By Resolvers Failed");
+			e.getStackTrace();
+		}
 		return null;
 	}
 

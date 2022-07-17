@@ -8,13 +8,15 @@ public class Reimbursement {
 	private Timestamp reimbursement_submitted;
 	private String reimbursement_description;
 	private ReimbursementType reimbursement_type;
-	private int reimbursement_author_fk;
-	private int reimbursement_resolver_fk;
+	private ReimbursementAuthor reimbursement_author;
+	private ReimbursementResolver reimbursement_resolver;
 	private ReimbursementResolution reimbursement_resolution;
 	
 	private int reimbursement_status_fk;
 	private int reimbursement_type_fk;
 	private int reimbursememnt_resolution_fk;
+	private int reimbursement_author_fk;
+	private int reimbursement_resolver_fk;
 	
 	
 	public Reimbursement() {
@@ -24,30 +26,30 @@ public class Reimbursement {
 
 
 	public Reimbursement(int reimbursement_id, int reimbursement_amount, Timestamp reimbursement_submitted,
-			String reimbursement_description, ReimbursementType reimbursement_type, int reimbursement_author_fk, 
-			int reimbursement_resolver_fk, ReimbursementResolution reimbursement_resolution) {
+			String reimbursement_description, ReimbursementType reimbursement_type, ReimbursementAuthor reimbursement_author, 
+			ReimbursementResolver reimbursement_resolver, ReimbursementResolution reimbursement_resolution) {
 		super();
 		this.reimbursement_id = reimbursement_id;
 		this.reimbursement_amount = reimbursement_amount;
 		this.reimbursement_submitted = reimbursement_submitted;
 		this.reimbursement_description = reimbursement_description;
 		this.reimbursement_type = reimbursement_type;
-		this.reimbursement_author_fk = reimbursement_author_fk;
-		this.reimbursement_resolver_fk = reimbursement_resolver_fk;
+		this.reimbursement_author = reimbursement_author;
+		this.reimbursement_resolver = reimbursement_resolver;
 		this.reimbursement_resolution = reimbursement_resolution;
 	}
 
 
 	public Reimbursement(int reimbursement_amount, Timestamp reimbursement_submitted, String reimbursement_description,
-			ReimbursementType reimbursement_type, int reimbursement_author_fk,
-			int reimbursement_resolver_fk, ReimbursementResolution reimbursement_resolution) {
+			ReimbursementType reimbursement_type, ReimbursementAuthor reimbursement_author,
+			ReimbursementResolver reimbursement_resolver, ReimbursementResolution reimbursement_resolution) {
 		super();
 		this.reimbursement_amount = reimbursement_amount;
 		this.reimbursement_submitted = reimbursement_submitted;
 		this.reimbursement_description = reimbursement_description;
 		this.reimbursement_type = reimbursement_type;
-		this.reimbursement_author_fk = reimbursement_author_fk;
-		this.reimbursement_resolver_fk = reimbursement_resolver_fk;
+		this.reimbursement_author = reimbursement_author;
+		this.reimbursement_resolver = reimbursement_resolver;
 		this.reimbursement_resolution = reimbursement_resolution;
 	}
 
@@ -57,8 +59,8 @@ public class Reimbursement {
 		return "Reimbursement [reimbursement_id=" + reimbursement_id + ", reimbursement_amount=" + reimbursement_amount
 				+ ", reimbursement_submitted=" + reimbursement_submitted + ", reimbursement_description="
 				+ reimbursement_description + ", reimbursement_type="
-				+ reimbursement_type + ", reimbursement_author_fk=" + reimbursement_author_fk
-				+ ", reimbursement_resolver_fk=" + reimbursement_resolver_fk + ", reimbursement_resolution="
+				+ reimbursement_type + ", reimbursement_author=" + reimbursement_author
+				+ ", reimbursement_resolver=" + reimbursement_resolver + ", reimbursement_resolution="
 				+ reimbursement_resolution + "]";
 	}
 
@@ -170,6 +172,26 @@ public class Reimbursement {
 
 	public void setReimbursememnt_resolution_fk(int reimbursememnt_resolution_fk) {
 		this.reimbursememnt_resolution_fk = reimbursememnt_resolution_fk;
+	}
+
+
+	public ReimbursementAuthor getReimbursement_author() {
+		return reimbursement_author;
+	}
+
+
+	public void setReimbursement_author(ReimbursementAuthor reimbursement_author) {
+		this.reimbursement_author = reimbursement_author;
+	}
+
+
+	public ReimbursementResolver getReimbursement_resolver() {
+		return reimbursement_resolver;
+	}
+
+
+	public void setReimbursement_resolver(ReimbursementResolver reimbursement_resolver) {
+		this.reimbursement_resolver = reimbursement_resolver;
 	}
 	
 	

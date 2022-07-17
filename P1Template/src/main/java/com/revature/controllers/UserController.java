@@ -44,6 +44,7 @@ public class UserController {
 		String last_name = ctx.body();
 		uDAO.updateUserName(userId, first_name, last_name);
 		
+		ctx.status(202);
 		ctx.result("User Id # " + userId + "'s name was updated to " + first_name + " " + last_name);
 		
 	};
@@ -53,6 +54,7 @@ public class UserController {
 		String email = ctx.body();
 		uDAO.updateUserEmail(userId, email);
 		
+		ctx.status(202);
 		ctx.result("User Id # " + userId + "'s email was updated to " + email);
 		
 	};
@@ -62,6 +64,7 @@ public class UserController {
 		int roleId = Integer.parseInt(ctx.body());
 		uDAO.updateUserRole(userId, roleId);
 		
+		ctx.status(202);
 		ctx.result("User Id # " + userId + "'s role was updated to Role Id # " + roleId);
 		
 	};

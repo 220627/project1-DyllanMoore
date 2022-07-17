@@ -1,5 +1,7 @@
 package com.revature.DAOS;
 
+import java.util.ArrayList;
+
 import com.revature.models.User;
 
 public interface UserDAOInterface {
@@ -17,5 +19,8 @@ public interface UserDAOInterface {
 	boolean updateUserEmail(int user, String email);
 	
 	boolean updateUserRole(int user, int userRole);
+	
+	//Get All Users
+	ArrayList<User> getUser();
 	
 }

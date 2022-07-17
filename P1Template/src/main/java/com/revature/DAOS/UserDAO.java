@@ -2,9 +2,18 @@ package com.revature.DAOS;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 
+import com.revature.models.Reimbursement;
+import com.revature.models.ReimbursementAuthor;
+import com.revature.models.ReimbursementResolution;
+import com.revature.models.ReimbursementResolver;
+import com.revature.models.ReimbursementType;
 import com.revature.models.User;
+import com.revature.models.UserRole;
 import com.revature.utils.ConnectionUtil;
 
 public class UserDAO implements UserDAOInterface{
@@ -109,6 +118,43 @@ public class UserDAO implements UserDAOInterface{
 			e.fillInStackTrace();
 		}
 		return false;
+	}
+
+	@Override
+	public ArrayList<User> getUser() {
+		try(Connection conn = ConnectionUtil.getConnection()) {
+			String sql = "select * from users;";
+			Statement s = conn.createStatement();
+			ResultSet rs = s.executeQuery(sql);
+			ArrayList<User> userList = new ArrayList<>();
+			
+			while(rs.next()) {
+				User u = new User(
+						rs.getInt("user_id"),
+						rs.getString("first_name"),
+						rs.getString("last_name"),
+						rs.getString("username"),
+						rs.getString("password"),
+						rs.getString("email"),
+						null
+						);
+				
+				int user_role_fk = rs.getInt("user_role_fk");
+				UserRoleDAO urDAO = new UserRoleDAO();
+				UserRole ur = urDAO.getRoleById(user_role_fk);
+				u.setUser_role(ur);
+				u.setUser_role_fk(user_role_fk);
+				userList.add(u);
+				
+			}
+			
+			return userList;
+			
+		} catch(SQLException e) {
+			System.out.println("Get All Reimbursements Failed");
+			e.getStackTrace();
+		}
+		return null;
 	}
 
 }

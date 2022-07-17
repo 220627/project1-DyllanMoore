@@ -1,5 +1,7 @@
 package com.revature.controllers;
 
+import java.util.ArrayList;
+
 import com.google.gson.Gson;
 import com.revature.DAOS.UserDAO;
 import com.revature.models.User;
@@ -69,4 +71,13 @@ public class UserController {
 		
 	};
 	
+	
+	//Get All Users
+	public Handler getUserHandler = (ctx) -> {
+		ArrayList<User> user = uDAO.getUser();
+		Gson gson = new Gson();
+		String Jsonuser = gson.toJson(user);
+		ctx.result(Jsonuser);
+		ctx.status(200);
+	};
 }

@@ -51,40 +51,23 @@ public class UserDAO implements UserDAOInterface{
 	}
 
 	@Override
-	public boolean updateUserFirstName(String newName, String first_name, String last_name) {
+	public boolean updateUserName(int userId, String first_name, String last_name) {
 		try(Connection conn = ConnectionUtil.getConnection()) {
-			String sql = "update users set first_name = ? where first_name = ? and last_name = ?;";
-			PreparedStatement ps = conn.prepareStatement(sql);
-			ps.setString(1, newName);
-			ps.setString(2, first_name);
-			ps.setString(3, last_name);
-			ps.executeUpdate();
-			System.out.println(first_name + " " + last_name + "'s first name was changed to " + newName);
+			String sql1 = "update users set first_name = ? where user_id = ?;";
+			String sql2 = "update users set last_name = ? where user_id = ?;";
+			PreparedStatement ps1 = conn.prepareStatement(sql1);
+			PreparedStatement ps2 = conn.prepareStatement(sql2);
+			ps1.setString(1, first_name);
+			ps1.setInt(2, userId);
+			ps1.executeUpdate();
+			ps2.setString(1, last_name);
+			ps2.setInt(2, userId);
+			System.out.println("User Id # " + userId + "'s name was changed to " + first_name + " " + last_name);
 			
 			return true;
 			
 		} catch(SQLException e) {
 			System.out.println("Update User First Name Failed");
-			e.fillInStackTrace();
-		}
-		return false;
-	}
-
-	@Override
-	public boolean updateUserLastName(String newName, String first_name, String last_name) {
-		try(Connection conn = ConnectionUtil.getConnection()) {
-			String sql = "update users set last_name = ? where first_name = ? and last_name = ?;";
-			PreparedStatement ps = conn.prepareStatement(sql);
-			ps.setString(1, newName);
-			ps.setString(2, first_name);
-			ps.setString(3, last_name);
-			ps.executeUpdate();
-			System.out.println(first_name + " " + last_name + "'s last name was changed to " + newName);
-			
-			return true;
-			
-		} catch(SQLException e) {
-			System.out.println("Update User Last Name Failed");
 			e.fillInStackTrace();
 		}
 		return false;

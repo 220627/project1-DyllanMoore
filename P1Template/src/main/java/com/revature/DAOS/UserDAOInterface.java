@@ -12,10 +12,8 @@ public interface UserDAOInterface {
 	
 	
 	//Update User Information
-	boolean updateUserFirstName(String newName, String first_name, String last_name);
-	
-	boolean updateUserLastName(String newName, String first_name, String last_name);
-	
+	boolean updateUserName(int userId, String first_name, String last_name);
+		
 	boolean updateUserEmail(int user, String email);
 	
 	boolean updateUserRole(int user, int userRole);

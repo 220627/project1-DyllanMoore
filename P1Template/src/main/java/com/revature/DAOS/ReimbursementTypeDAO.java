@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import com.revature.models.ReimbursementType;
 import com.revature.utils.ConnectionUtil;
 
 public class ReimbursementTypeDAO implements ReimbursementTypeDAOInterface{
@@ -25,6 +26,12 @@ public class ReimbursementTypeDAO implements ReimbursementTypeDAOInterface{
 			
 		}
 		return false;
+	}
+
+	@Override
+	public ReimbursementType getTypeById(int id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

@@ -8,16 +8,16 @@ public interface UserDAOInterface {
 	boolean insertUser(User user);
 	
 	//Delete User
-	public void deleteUser(String user);
+	public void deleteUser(String first_name, String last_name);
 	
 	
 	//Update User Information
-	boolean updateUserFirstName(String oldName, String newName);
+	boolean updateUserFirstName(String newName, String first_name, String last_name);
 	
-	boolean updateUserLastName(String oldName, String newName);
+	boolean updateUserLastName(String newName, String first_name, String last_name);
 	
-	boolean updateUserEmail(String  user, String email);
+	boolean updateUserEmail(int user, String email);
 	
-	boolean updateUserRole(String user, int userRole);
+	boolean updateUserRole(int user, int userRole);
 	
 }

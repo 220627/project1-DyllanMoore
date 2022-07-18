@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+</head>
+<body>
+    <div>
+        <h1>Monsters Inc.</h1>
+        <h2>We scare because we care.</h2>
+    </div>
+    <div>
+        <h2>What would you like to do?</h2>
+        <form>
+            <select id="user-reimbursement-options">
+                <option value="blank"></option>
+                <option value="create-reimbursement">Create a New Reimbursement</option>
+                <option value="view-reimbursements">View Your Submitted Reimbursements</option>
+                <option value="edit-reimbursements">Edit Your Pending Reimbursements</option>
+            </select>
+            <button type="button">Submit</button>
+        </form>
+    </div>
+    <div>
+        <h2>Create A New Reimbursement</h2>
+        <form>
+            <label for="create-reimbursement-employee">Employee Number</label>
+            <input id="create-reimbursement-employee" type="number">
+            <label for="create-reimbursement-amount">Reimbursement Amount</label>
+            <input id="create-reimbursement-amount" type="number">
+            <label for="create-reimbursement-description">Reimbursement Description</label>
+            <input id="create-reimbursement-description" type="text">
+            <label for="create-reimbursement-date">Date Submitted</label>
+            <input id="create-reimbursement-date" type="date">
+            <label for="create-reimbursement-type">Which Best Describes Your Reimbursement?</label>
+            <select id="create-reimbursement-type">
+                <option value="blank"></option>
+                <option value="1">Housing</option>
+                <option value="2">Food</option>
+                <option value="3">Travel</option>
+                <option value="4">Profeesional Development</option>
+                <option value="5">Other</option>
+            </select>
+            <label for="create-reimbursement-if-other">If "Other" please describe.</label>
+            <input id="create-reimbursement-if-other" type="text">
+            <button type="button">Submit</button>
+        </form>
+    </div>
+    <div>
+        <h2>All Reimbursements Submitted by You</h2>
+    </div>
+    <div>
+        <h2>Pending Reimbursements Submitted by You</h2>
+    </div>
+</body>
+</html>

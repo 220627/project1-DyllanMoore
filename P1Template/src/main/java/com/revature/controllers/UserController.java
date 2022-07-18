@@ -29,25 +29,32 @@ public class UserController {
 	
 	//Delete User
 	public Handler deleteUserHandler = (ctx) -> {
-		String userToDelete = ctx.pathParam("user");
-		String first_name = ctx.body();
-		String last_name = ctx.body();
-		uDAO.deleteUser(first_name, last_name);
+		int userId = Integer.parseInt(ctx.pathParam("user"));
+		uDAO.deleteUser(userId);
 		
-		ctx.result(userToDelete + " has been removed from the Monsters Inc Database.");
+		ctx.result(userId + " has been removed from the Monsters Inc Database.");
 		ctx.status(202);
 		
 	};
 	
 	//Update User Information
-	public Handler updateUserNameHandler = (ctx) -> {
+	public Handler updateUserFirstNameHandler = (ctx) -> {
 		int userId = Integer.parseInt(ctx.pathParam("userId"));
 		String first_name = ctx.body();
-		String last_name = ctx.body();
-		uDAO.updateUserName(userId, first_name, last_name);
+		uDAO.updateUserFirstName(userId, first_name);
 		
 		ctx.status(202);
-		ctx.result("User Id # " + userId + "'s name was updated to " + first_name + " " + last_name);
+		ctx.result("User Id # " + userId + "'s name was updated to " + first_name);
+		
+	};
+	
+	public Handler updateUserLastNameHandler = (ctx) -> {
+		int userId = Integer.parseInt(ctx.pathParam("userId"));
+		String last_name = ctx.body();
+		uDAO.updateUserLastName(userId, last_name);
+		
+		ctx.status(202);
+		ctx.result("User Id # " + userId + "'s name was updated to " + last_name);
 		
 	};
 	

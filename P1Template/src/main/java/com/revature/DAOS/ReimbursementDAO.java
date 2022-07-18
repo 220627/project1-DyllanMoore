@@ -61,7 +61,7 @@ public class ReimbursementDAO implements ReimbursementDAOInterface{
 			
 		} catch(SQLException e) {
 			System.out.println("Update Reimbursement Amount Failed");
-			e.fillInStackTrace();
+			e.printStackTrace();
 		}
 		return false;
 	}
@@ -81,7 +81,7 @@ public class ReimbursementDAO implements ReimbursementDAOInterface{
 			
 		} catch(SQLException e) {
 			System.out.println("Update Reimbursement Description Failed");
-			e.fillInStackTrace();
+			e.printStackTrace();
 		}
 		return false;
 	}
@@ -101,7 +101,7 @@ public class ReimbursementDAO implements ReimbursementDAOInterface{
 			
 		} catch(SQLException e) {
 			System.out.println("Update Reimbursement Type Failed");
-			e.fillInStackTrace();
+			e.printStackTrace();
 		}
 		return false;
 	}
@@ -138,7 +138,7 @@ public class ReimbursementDAO implements ReimbursementDAOInterface{
 			
 		} catch(SQLException e) {
 			System.out.println("Delete Reimbursement Failed");
-			e.getStackTrace();
+			e.printStackTrace();
 		}
 		
 	}
@@ -194,7 +194,7 @@ public class ReimbursementDAO implements ReimbursementDAOInterface{
 			
 		} catch(SQLException e) {
 			System.out.println("Get All Reimbursements Failed");
-			e.getStackTrace();
+			e.printStackTrace();
 		}
 		return null;
 	}

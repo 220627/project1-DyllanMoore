@@ -7,11 +7,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import com.revature.models.Reimbursement;
-import com.revature.models.ReimbursementAuthor;
-import com.revature.models.ReimbursementResolution;
-import com.revature.models.ReimbursementResolver;
-import com.revature.models.ReimbursementType;
 import com.revature.models.User;
 import com.revature.models.UserRole;
 import com.revature.utils.ConnectionUtil;
@@ -44,14 +39,13 @@ public class UserDAO implements UserDAOInterface{
 	}
 
 	@Override
-	public void deleteUser(String first_name, String last_name) {
+	public void deleteUser(int userId) {
 		try(Connection conn = ConnectionUtil.getConnection()) {
-			String sql = "delete from users where first_name = ? and last_name = ?;";
+			String sql = "delete from users where user_id = ?;";
 			PreparedStatement ps = conn.prepareStatement(sql);
 			
-			ps.setString(1, first_name);
-			ps.setString(2, last_name);
-			System.out.println(first_name + " " + last_name + " was deleted fromt he Monsters Inc Database");
+			ps.setInt(1, userId);
+			System.out.println("User # " + userId + "was deleted fromt he Monsters Inc Database");
 			
 		} catch(SQLException e) {
 			System.out.println("Delete User Failed");
@@ -61,28 +55,43 @@ public class UserDAO implements UserDAOInterface{
 	}
 
 	@Override
-	public boolean updateUserName(int userId, String first_name, String last_name) {
+	public boolean updateUserFirstName(int userId, String first_name) {
 		try(Connection conn = ConnectionUtil.getConnection()) {
-			String sql1 = "update users set first_name = ? where user_id = ?;";
-			String sql2 = "update users set last_name = ? where user_id = ?;";
-			PreparedStatement ps1 = conn.prepareStatement(sql1);
-			PreparedStatement ps2 = conn.prepareStatement(sql2);
-			ps1.setString(1, first_name);
-			ps1.setInt(2, userId);
-			ps1.executeUpdate();
-			ps2.setString(1, last_name);
-			ps2.setInt(2, userId);
-			System.out.println("User Id # " + userId + "'s name was changed to " + first_name + " " + last_name);
+			String sql = "update users set first_name = ? where user_id = ?;";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, first_name);
+			ps.setInt(2, userId);
+			ps.executeUpdate();
+			System.out.println("User Id # " + userId + "'s name was changed to " + first_name);
 			
 			return true;
 			
 		} catch(SQLException e) {
 			System.out.println("Update User First Name Failed");
-			e.fillInStackTrace();
+			e.printStackTrace();
 		}
 		return false;
 	}
 
+	@Override
+	public boolean updateUserLastName(int userId, String last_name) {
+		try(Connection conn = ConnectionUtil.getConnection()) {
+			String sql = "update users set last_name = ? where user_id = ?;";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, last_name);
+			ps.setInt(2, userId);
+			ps.executeUpdate();
+			System.out.println("User Id # " + userId + "'s name was changed to " + last_name);
+			
+			return true;
+			
+		} catch(SQLException e) {
+			System.out.println("Update User First Name Failed");
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
 	@Override
 	public boolean updateUserEmail(int user, String email) {
 		try(Connection conn = ConnectionUtil.getConnection()) {
@@ -97,7 +106,7 @@ public class UserDAO implements UserDAOInterface{
 			
 		} catch(SQLException e) {
 			System.out.println("Update User Email Failed");
-			e.fillInStackTrace();
+			e.printStackTrace();
 		}
 		return false;
 	}
@@ -105,7 +114,7 @@ public class UserDAO implements UserDAOInterface{
 	@Override
 	public boolean updateUserRole(int user, int userRole) {
 		try(Connection conn = ConnectionUtil.getConnection()) {
-			String sql = "update users set userRole = ? where user_id = ?;";
+			String sql = "update users set user_role_fk = ? where user_id = ?;";
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setInt(1, userRole);
 			ps.setInt(2, user);
@@ -116,7 +125,7 @@ public class UserDAO implements UserDAOInterface{
 			
 		} catch(SQLException e) {
 			System.out.println("Update User Role Failed");
-			e.fillInStackTrace();
+			e.printStackTrace();
 		}
 		return false;
 	}
@@ -153,7 +162,7 @@ public class UserDAO implements UserDAOInterface{
 			
 		} catch(SQLException e) {
 			System.out.println("Get All Reimbursements Failed");
-			e.getStackTrace();
+			e.printStackTrace();
 		}
 		return null;
 	}

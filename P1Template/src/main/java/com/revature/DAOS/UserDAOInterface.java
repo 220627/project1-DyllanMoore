@@ -10,11 +10,13 @@ public interface UserDAOInterface {
 	boolean insertUser(User user);
 	
 	//Delete User
-	public void deleteUser(String first_name, String last_name);
+	public void deleteUser(int userId);
 	
 	
 	//Update User Information
-	boolean updateUserName(int userId, String first_name, String last_name);
+	boolean updateUserFirstName(int userId, String first_name);
+	
+	boolean updateUserLastName(int userId, String last_name);
 		
 	boolean updateUserEmail(int user, String email);
 	

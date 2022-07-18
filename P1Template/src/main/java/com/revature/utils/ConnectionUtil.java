@@ -20,7 +20,7 @@ public class ConnectionUtil {
 		//Use our database credentials to establish a database connection
 		//Hardcoded for now... BAD! we'll change this later to hide them in the Environment Variables
 		
-		String url = "jdbc:postgresql://localhost:5432/postgres?currentSchema=monsters_inc";
+		String url = "jdbc:postgresql://localhost:5432/postgres?currentSchema=employee_reimbursement";
 		String username = "postgres";
 		String password = "password";
 		

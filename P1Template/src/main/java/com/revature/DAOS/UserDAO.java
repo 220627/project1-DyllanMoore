@@ -33,6 +33,7 @@ public class UserDAO implements UserDAOInterface{
 			
 			System.out.println(user.getFirst_name() + " " + user.getLast_name() + " was added to the Monsters Inc Database.");
 			
+			ps.executeUpdate();
 			return true;
 			
 		} catch(SQLException e) {

@@ -33,15 +33,15 @@ public class Launcher {
 		
 		
 		//Update Reimbursement Type
-		app.put("/reimbursement/:type", rtc.updateReimbursementTypeHandler);
+		app.put("/reimbursement/:type", rtc.updateReimbursementTypeNameHandler);
 		
 		//Reimbursement Actions
 		app.post("/newreimbursement", rc.newReimbursementHandler);
 		app.delete("/deletereimbursement/:reimbursementId", rc.deleteReimbursementHandler);
-		app.put("/updateamount/:reimbursementId", rc.updateReimbursementAmountHandler);
-		app.put("/updatedescription/:reimbursementId", rc.updateReimbursementDescriptionHandler);
-		app.put("/updatetype/:reimbursementId", rc.updateReimbursementTypeHandler);
-		app.put("/updateresolution/:reimbursementId", rc.updateReimbursementResolutionHandler);
+		app.put("/updateamount/:updateamount", rc.updateReimbursementAmountHandler);
+		app.put("/updatedescription/:updatedescription", rc.updateReimbursementDescriptionHandler);
+		app.put("/updatetype/:updatetype", rc.updateReimbursementTypeHandler);
+		app.put("/updateresolution/:updateresolution", rc.updateReimbursementResolutionHandler);
 		app.get("/reimbursement", rc.getReimbursementHandler);
 		app.get("/reimbursementstatus/:resolution", rc.getReimbursementByStatusHandler);
 		app.get("/reimbursementauthor/:authorId", rc.getReimbursementByAuthorHandler);

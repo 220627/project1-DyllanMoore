@@ -13,7 +13,7 @@ public interface ReimbursementDAOInterface {
 	
 	boolean updateReimbursementDescription(int reimbursementId, String description);
 	
-	boolean updateReimbursementType(int reimbursementId, int type);
+	boolean updateReimbursementType(int reimbursementUpdateId, int type);
 	
 	boolean updateReimbursementResolution(int reimbursementId, int resolution);
 	
@@ -23,11 +23,11 @@ public interface ReimbursementDAOInterface {
 	//Get Reimbursements
 	ArrayList<Reimbursement> getReimbursement();
 		
-	ArrayList<Reimbursement> getReimbursementByStatus(int resolution);
+	public Reimbursement getReimbursementByStatus(int resolution);
 	
-	ArrayList<Reimbursement> getReimbursementByAuthor(int author);
+	public Reimbursement getReimbursementByAuthor(int author);
 	
-	ArrayList<Reimbursement> getReimbursementByResolver(int resolver);
+	public Reimbursement getReimbursementByResolver(int resolver);
 
 	
 }

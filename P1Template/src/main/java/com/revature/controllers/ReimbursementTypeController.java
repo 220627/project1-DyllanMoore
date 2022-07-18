@@ -9,7 +9,7 @@ public class ReimbursementTypeController {
 	ReimbursementTypeDAO rtDAO = new ReimbursementTypeDAO();
 	
 	//Update Reimbursement Type Name
-	public Handler updateReimbursementTypeHandler = (ctx) -> {
+	public Handler updateReimbursementTypeNameHandler = (ctx) -> {
 		String oldType = ctx.pathParam("type");
 		String newType = ctx.body();
 		rtDAO.updateReimbursementType(newType, oldType);

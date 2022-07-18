@@ -27,13 +27,14 @@ public class ReimbursementDAO implements ReimbursementDAOInterface{
 			PreparedStatement ps = conn.prepareStatement(sql);
 			
 			ps.setInt(1, reimbursement.getReimbursement_amount());
-			ps.setTimestamp(2, reimbursement.getReimbursement_submitted());
+			ps.setString(2, reimbursement.getReimbursement_submitted());
 			ps.setString(3, reimbursement.getReimbursement_description());
 			ps.setInt(4, reimbursement.getReimbursement_type_fk());
 			ps.setInt(5, reimbursement.getReimbursement_author_fk());
 			ps.setInt(6, reimbursement.getReimbursement_resolver_fk());
-			ps.setInt(7, reimbursement.getReimbursememnt_resolution_fk());
+			ps.setInt(7, reimbursement.getReimbursement_resolution_fk());
 			
+			ps.executeUpdate();
 			System.out.println("A reimbursement for $" + reimbursement.getReimbursement_amount() + " was added to the Monsters Inc Database by user #  " + reimbursement.getReimbursement_author_fk());
 			
 			return true;
@@ -46,14 +47,15 @@ public class ReimbursementDAO implements ReimbursementDAOInterface{
 	}
 
 	@Override
-	public boolean updateReimbursementAmount(int reimbursementId, int amount) {
+	public boolean updateReimbursementAmount(int reimbursementAmountId, int amount) {
 		try(Connection conn = ConnectionUtil.getConnection()) {
 			String sql = "update reimbursements set reimbursement_amount = ? where reimbursement_id = ?;";
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setInt(1, amount);
-			ps.setInt(2, reimbursementId);
+			ps.setInt(2, reimbursementAmountId);
+			
 			ps.executeUpdate();
-			System.out.println("Reimbursement # " + reimbursementId + "'s amount was changed to $" + amount);
+			System.out.println("Reimbursement # " + reimbursementAmountId + "'s amount was changed to $" + amount);
 			
 			return true;
 			
@@ -65,14 +67,15 @@ public class ReimbursementDAO implements ReimbursementDAOInterface{
 	}
 
 	@Override
-	public boolean updateReimbursementDescription(int reimbursementId, String description) {
+	public boolean updateReimbursementDescription(int reimbursementDescriptionId, String description) {
 		try(Connection conn = ConnectionUtil.getConnection()) {
 			String sql = "update reimbursements set reimbursement_description = ? where reimbursement_id = ?;";
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1, description);
-			ps.setInt(2, reimbursementId);
+			ps.setInt(2, reimbursementDescriptionId);
+			
 			ps.executeUpdate();
-			System.out.println("Reimbursement # " + reimbursementId + "'s description was changed to " + description);
+			System.out.println("Reimbursement # " + reimbursementDescriptionId + "'s description was changed to " + description);
 			
 			return true;
 			
@@ -84,14 +87,15 @@ public class ReimbursementDAO implements ReimbursementDAOInterface{
 	}
 
 	@Override
-	public boolean updateReimbursementType(int reimbursementId, int type) {
+	public boolean updateReimbursementType(int reimbursementTypeId, int type) {
 		try(Connection conn = ConnectionUtil.getConnection()) {
 			String sql = "update reimbursements set reimbursement_type_fk = ? where reimbursement_id = ?;";
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setInt(1, type);
-			ps.setInt(2, reimbursementId);
+			ps.setInt(2, reimbursementTypeId);
+			
 			ps.executeUpdate();
-			System.out.println("Reimbursement # " + reimbursementId + "'s type was changed to type # " + type);
+			System.out.println("Reimbursement # " + reimbursementTypeId + "'s type was changed to type # " + type);
 			
 			return true;
 			
@@ -103,20 +107,21 @@ public class ReimbursementDAO implements ReimbursementDAOInterface{
 	}
 
 	@Override
-	public boolean updateReimbursementResolution(int reimbursementId, int resolution) {
+	public boolean updateReimbursementResolution(int reimbursementUpdateId, int resolution) {
 		try(Connection conn = ConnectionUtil.getConnection()) {
 			String sql = "update reimbursements set reimbursement_resolution_fk = ? where reimbursement_id = ?;";
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setInt(1, resolution);
-			ps.setInt(2, reimbursementId);
+			ps.setInt(2, reimbursementUpdateId);
+			
 			ps.executeUpdate();
-			System.out.println("Reimbursement # " + reimbursementId + "'s resolution was changed to resolution id #" + resolution);
+			System.out.println("Reimbursement # " + reimbursementUpdateId + "'s resolution was changed to resolution id #" + resolution);
 			
 			return true;
 			
 		} catch(SQLException e) {
 			System.out.println("Update Reimbursement Resolution Failed");
-			e.fillInStackTrace();
+			e.printStackTrace();
 		}
 		return false;
 	}
@@ -127,6 +132,7 @@ public class ReimbursementDAO implements ReimbursementDAOInterface{
 			String sql = "delete from reimbursements where reimbursement_id = ?;";
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setInt(1, reimbursementId);
+			
 			ps.executeUpdate();
 			System.out.println("Reimbursement Id #" + reimbursementId + " was removed from the Monsters Inc Database.");
 			
@@ -149,7 +155,7 @@ public class ReimbursementDAO implements ReimbursementDAOInterface{
 				Reimbursement r = new Reimbursement(
 						rs.getInt("reimbursement_id"),
 						rs.getInt("reimbursement_amount"),
-						rs.getTimestamp("reimbursement_submitted"),
+						rs.getString("reimbursement_submitted"),
 						rs.getString("reimbursement_description"),
 						null, null, null, null
 						);
@@ -158,7 +164,7 @@ public class ReimbursementDAO implements ReimbursementDAOInterface{
 				ReimbursementTypeDAO rtDAO = new ReimbursementTypeDAO();
 				ReimbursementType rt = rtDAO.getTypeById(reimbursement_type_fk);
 				r.setReimbursement_type(rt);
-				r.setReimbursememnt_resolution_fk(reimbursement_type_fk);
+				r.setReimbursement_resolution_fk(reimbursement_type_fk);
 				reimbursementList.add(r);
 
 				int reimbursement_author_fk = rs.getInt("reimbursement_author_fk");
@@ -179,7 +185,7 @@ public class ReimbursementDAO implements ReimbursementDAOInterface{
 				ReimbursementResolutionDAO resDAO = new ReimbursementResolutionDAO();
 				ReimbursementResolution res = resDAO.getResolutionById(reimbursement_resolution_fk);
 				r.setReimbursement_resolution(res);
-				r.setReimbursememnt_resolution_fk(reimbursement_resolution_fk);
+				r.setReimbursement_resolution_fk(reimbursement_resolution_fk);
 				reimbursementList.add(r);
 				
 			}
@@ -194,20 +200,18 @@ public class ReimbursementDAO implements ReimbursementDAOInterface{
 	}
 
 	@Override
-	public ArrayList<Reimbursement> getReimbursementByStatus(int resolution) {
+	public Reimbursement getReimbursementByStatus(int resolution) {
 		try(Connection conn = ConnectionUtil.getConnection()) {
 			String sql = "select * from reimbursements where reimbursement_resolution_fk = ?;";
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setInt(1, resolution);
-			Statement s = conn.createStatement();
-			ResultSet rs = s.executeQuery(sql);
-			ArrayList<Reimbursement> reimbursementList = new ArrayList<>();
+			ResultSet rs = ps.executeQuery();
 			
-			while(rs.next()) {
+			if(rs.next()) {
 				Reimbursement r = new Reimbursement(
 						rs.getInt("reimbursement_id"),
 						rs.getInt("reimbursement_amount"),
-						rs.getTimestamp("reimbursement_submitted"),
+						rs.getString("reimbursement_submitted"),
 						rs.getString("reimbursement_description"),
 						null, null, null, null
 						);
@@ -216,33 +220,28 @@ public class ReimbursementDAO implements ReimbursementDAOInterface{
 				ReimbursementTypeDAO rtDAO = new ReimbursementTypeDAO();
 				ReimbursementType rt = rtDAO.getTypeById(reimbursement_type_fk);
 				r.setReimbursement_type(rt);
-				r.setReimbursememnt_resolution_fk(reimbursement_type_fk);
-				reimbursementList.add(r);
+				r.setReimbursement_resolution_fk(reimbursement_type_fk);
 
 				int reimbursement_author_fk = rs.getInt("reimbursement_author_fk");
 				ReimbursementAuthorDAO raDAO = new ReimbursementAuthorDAO();
 				ReimbursementAuthor ra = raDAO.getAuthorById(reimbursement_author_fk);
 				r.setReimbursement_author(ra);
 				r.setReimbursement_author_fk(reimbursement_author_fk);
-				reimbursementList.add(r);
 					
 				int reimbursement_resolver_fk = rs.getInt("reimbursement_resolver_fk");
 				ReimbursementResolverDAO rrDAO = new ReimbursementResolverDAO();
 				ReimbursementResolver rr = rrDAO.getResolverById(reimbursement_resolver_fk);
 				r.setReimbursement_resolver(rr);
 				r.setReimbursement_resolver_fk(reimbursement_resolver_fk);
-				reimbursementList.add(r);
 				
 				int reimbursement_resolution_fk = rs.getInt("reimbursement_resolution_fk");
 				ReimbursementResolutionDAO resDAO = new ReimbursementResolutionDAO();
 				ReimbursementResolution res = resDAO.getResolutionById(reimbursement_resolution_fk);
 				r.setReimbursement_resolution(res);
-				r.setReimbursememnt_resolution_fk(reimbursement_resolution_fk);
-				reimbursementList.add(r);
+				r.setReimbursement_resolution_fk(reimbursement_resolution_fk);
 				
+				return r;
 			}
-			
-			return reimbursementList;
 			
 		} catch(SQLException e) {
 			System.out.println("Get Reimbursements By Resolution Failed");
@@ -252,20 +251,18 @@ public class ReimbursementDAO implements ReimbursementDAOInterface{
 	}
 
 	@Override
-	public ArrayList<Reimbursement> getReimbursementByAuthor(int author) {
+	public Reimbursement getReimbursementByAuthor(int author) {
 		try(Connection conn = ConnectionUtil.getConnection()) {
 			String sql = "select * from reimbursements where reimbursement_author_fk = ?;";
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setInt(1, author);
-			Statement s = conn.createStatement();
-			ResultSet rs = s.executeQuery(sql);
-			ArrayList<Reimbursement> reimbursementList = new ArrayList<>();
+			ResultSet rs = ps.executeQuery();
 			
-			while(rs.next()) {
+			if(rs.next()) {
 				Reimbursement r = new Reimbursement(
 						rs.getInt("reimbursement_id"),
 						rs.getInt("reimbursement_amount"),
-						rs.getTimestamp("reimbursement_submitted"),
+						rs.getString("reimbursement_submitted"),
 						rs.getString("reimbursement_description"),
 						null, null, null, null
 						);
@@ -274,33 +271,28 @@ public class ReimbursementDAO implements ReimbursementDAOInterface{
 				ReimbursementTypeDAO rtDAO = new ReimbursementTypeDAO();
 				ReimbursementType rt = rtDAO.getTypeById(reimbursement_type_fk);
 				r.setReimbursement_type(rt);
-				r.setReimbursememnt_resolution_fk(reimbursement_type_fk);
-				reimbursementList.add(r);
+				r.setReimbursement_resolution_fk(reimbursement_type_fk);
 
 				int reimbursement_author_fk = rs.getInt("reimbursement_author_fk");
 				ReimbursementAuthorDAO raDAO = new ReimbursementAuthorDAO();
 				ReimbursementAuthor ra = raDAO.getAuthorById(reimbursement_author_fk);
 				r.setReimbursement_author(ra);
 				r.setReimbursement_author_fk(reimbursement_author_fk);
-				reimbursementList.add(r);
 					
 				int reimbursement_resolver_fk = rs.getInt("reimbursement_resolver_fk");
 				ReimbursementResolverDAO rrDAO = new ReimbursementResolverDAO();
 				ReimbursementResolver rr = rrDAO.getResolverById(reimbursement_resolver_fk);
 				r.setReimbursement_resolver(rr);
 				r.setReimbursement_resolver_fk(reimbursement_resolver_fk);
-				reimbursementList.add(r);
 				
 				int reimbursement_resolution_fk = rs.getInt("reimbursement_resolution_fk");
 				ReimbursementResolutionDAO resDAO = new ReimbursementResolutionDAO();
 				ReimbursementResolution res = resDAO.getResolutionById(reimbursement_resolution_fk);
 				r.setReimbursement_resolution(res);
-				r.setReimbursememnt_resolution_fk(reimbursement_resolution_fk);
-				reimbursementList.add(r);
+				r.setReimbursement_resolution_fk(reimbursement_resolution_fk);
 				
+				return r;
 			}
-			
-			return reimbursementList;
 			
 		} catch(SQLException e) {
 			System.out.println("Get Reimbursements By Author Failed");
@@ -310,20 +302,18 @@ public class ReimbursementDAO implements ReimbursementDAOInterface{
 	}
 
 	@Override
-	public ArrayList<Reimbursement> getReimbursementByResolver(int resolver) {
+	public Reimbursement getReimbursementByResolver(int resolver) {
 		try(Connection conn = ConnectionUtil.getConnection()) {
-			String sql = "select * from reimbursements where reimbursement_resolver_id = ?;";
+			String sql = "select * from reimbursements where reimbursement_resolver_fk = ?;";
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setInt(1, resolver);
-			Statement s = conn.createStatement();
-			ResultSet rs = s.executeQuery(sql);
-			ArrayList<Reimbursement> reimbursementList = new ArrayList<>();
+			ResultSet rs = ps.executeQuery();
 			
 			while(rs.next()) {
 				Reimbursement r = new Reimbursement(
 						rs.getInt("reimbursement_id"),
 						rs.getInt("reimbursement_amount"),
-						rs.getTimestamp("reimbursement_submitted"),
+						rs.getString("reimbursement_submitted"),
 						rs.getString("reimbursement_description"),
 						null, null, null, null
 						);
@@ -332,33 +322,29 @@ public class ReimbursementDAO implements ReimbursementDAOInterface{
 				ReimbursementTypeDAO rtDAO = new ReimbursementTypeDAO();
 				ReimbursementType rt = rtDAO.getTypeById(reimbursement_type_fk);
 				r.setReimbursement_type(rt);
-				r.setReimbursememnt_resolution_fk(reimbursement_type_fk);
-				reimbursementList.add(r);
+				r.setReimbursement_resolution_fk(reimbursement_type_fk);
 
 				int reimbursement_author_fk = rs.getInt("reimbursement_author_fk");
 				ReimbursementAuthorDAO raDAO = new ReimbursementAuthorDAO();
 				ReimbursementAuthor ra = raDAO.getAuthorById(reimbursement_author_fk);
 				r.setReimbursement_author(ra);
 				r.setReimbursement_author_fk(reimbursement_author_fk);
-				reimbursementList.add(r);
 					
 				int reimbursement_resolver_fk = rs.getInt("reimbursement_resolver_fk");
 				ReimbursementResolverDAO rrDAO = new ReimbursementResolverDAO();
 				ReimbursementResolver rr = rrDAO.getResolverById(reimbursement_resolver_fk);
 				r.setReimbursement_resolver(rr);
 				r.setReimbursement_resolver_fk(reimbursement_resolver_fk);
-				reimbursementList.add(r);
 				
 				int reimbursement_resolution_fk = rs.getInt("reimbursement_resolution_fk");
 				ReimbursementResolutionDAO resDAO = new ReimbursementResolutionDAO();
 				ReimbursementResolution res = resDAO.getResolutionById(reimbursement_resolution_fk);
 				r.setReimbursement_resolution(res);
-				r.setReimbursememnt_resolution_fk(reimbursement_resolution_fk);
-				reimbursementList.add(r);
+				r.setReimbursement_resolution_fk(reimbursement_resolution_fk);
 				
+				return r;
 			}
 			
-			return reimbursementList;
 			
 		} catch(SQLException e) {
 			System.out.println("Get Reimbursements By Resolvers Failed");

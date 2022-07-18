@@ -36,40 +36,40 @@ public class ReimbursementController {
 	
 	//Update Reimbursements
 	public Handler updateReimbursementAmountHandler = (ctx) -> {
-		int reimbursementId = Integer.parseInt(ctx.pathParam("reimbursementId"));
+		int reimbursementAmountId = Integer.parseInt(ctx.pathParam("updateamount"));
 		int amount = Integer.parseInt(ctx.body());
-		rDAO.updateReimbursementAmount(reimbursementId, amount);
+		rDAO.updateReimbursementAmount(reimbursementAmountId, amount);
 		
 		ctx.status(202);
-		ctx.result("Reimbursement Id # " + reimbursementId + "'s amount has been changed to " + amount);
+		ctx.result("Reimbursement Id # " + reimbursementAmountId + "'s amount has been changed to " + amount);
 	};
 	
 	
 	public Handler updateReimbursementDescriptionHandler = (ctx) -> {
-		int reimbursementId = Integer.parseInt(ctx.pathParam("reimbursementId"));
+		int reimbursementDescriptionId = Integer.parseInt(ctx.pathParam("updatedescription"));
 		String description = ctx.body();
-		rDAO.updateReimbursementDescription(reimbursementId, description);
+		rDAO.updateReimbursementDescription(reimbursementDescriptionId, description);
 		
 		ctx.status(202);
-		ctx.result("Reimbursement Id # " + reimbursementId + "'s description has been changed");
+		ctx.result("Reimbursement Id # " + reimbursementDescriptionId + "'s description has been changed");
 	};
 	
 	public Handler updateReimbursementTypeHandler = (ctx) -> {
-		int reimbursementId = Integer.parseInt(ctx.pathParam("reimbursementId"));
+		int reimbursementTypeId = Integer.parseInt(ctx.pathParam("updatetype"));
 		int type = Integer.parseInt(ctx.body());
-		rDAO.updateReimbursementType(reimbursementId, type);
+		rDAO.updateReimbursementType(reimbursementTypeId, type);
 		
 		ctx.status(202);
-		ctx.result("Reimbursement Id # " + reimbursementId + "'s type has been changed to Type Id # " + type);
+		ctx.result("Reimbursement Id # " + reimbursementTypeId + "'s type has been changed to Type Id # " + type);
 	};
 	
 	public Handler updateReimbursementResolutionHandler = (ctx) -> {
-		int reimbursementId = Integer.parseInt(ctx.pathParam("reimbursementId"));
+		int reimbursementUpdateId = Integer.parseInt(ctx.pathParam("updateresolution"));
 		int resolution = Integer.parseInt(ctx.body());
-		rDAO.updateReimbursementResolution(reimbursementId, resolution);
+		rDAO.updateReimbursementResolution(reimbursementUpdateId, resolution);
 		
 		ctx.status(202);
-		ctx.result("Reimbursement Id # " + reimbursementId + "'s amount has been changed to Resolution Id # " + resolution);
+		ctx.result("Reimbursement Id # " + reimbursementUpdateId + "'s amount has been changed to Resolution Id # " + resolution);
 	};
 	
 	
@@ -84,27 +84,27 @@ public class ReimbursementController {
 	
 	public Handler getReimbursementByStatusHandler = (ctx) -> {
 		int resolution = Integer.parseInt(ctx.pathParam("resolution"));
-		ArrayList<Reimbursement> reimbursement = rDAO.getReimbursementByStatus(resolution);
+		Reimbursement r = rDAO.getReimbursementByStatus(resolution);
 		Gson gson = new Gson();
-		String Jsonreimbursement = gson.toJson(reimbursement);
+		String Jsonreimbursement = gson.toJson(r);
 		ctx.result(Jsonreimbursement);
 		ctx.status(200);
 	};
 	
 	public Handler getReimbursementByAuthorHandler = (ctx) -> {
 		int authorId = Integer.parseInt(ctx.pathParam("authorId"));
-		ArrayList<Reimbursement> reimbursement = rDAO.getReimbursementByAuthor(authorId);
+		Reimbursement r = rDAO.getReimbursementByAuthor(authorId);
 		Gson gson = new Gson();
-		String Jsonreimbursement = gson.toJson(reimbursement);
+		String Jsonreimbursement = gson.toJson(r);
 		ctx.result(Jsonreimbursement);
 		ctx.status(200);
 	};
 	
 	public Handler getReimbursementByResolverHandler = (ctx) -> {
 		int resolverId = Integer.parseInt(ctx.pathParam("resolverId"));
-		ArrayList<Reimbursement> reimbursement = rDAO.getReimbursementByResolver(resolverId);
+		Reimbursement r = rDAO.getReimbursementByResolver(resolverId);
 		Gson gson = new Gson();
-		String Jsonreimbursement = gson.toJson(reimbursement);
+		String Jsonreimbursement = gson.toJson(r);
 		ctx.result(Jsonreimbursement);
 		ctx.status(200);
 	};

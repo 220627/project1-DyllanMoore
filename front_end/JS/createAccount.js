@@ -35,3 +35,7 @@ createSubmitButton.addEventListener("click", function(){
         newUserAddedDiv.append(newUserPasswordError);
     }
 });
+
+haveAccountButton.addEventListener("clcik", function() {
+    location.redirect("HTML/login.html");
+})

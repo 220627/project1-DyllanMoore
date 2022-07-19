@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Dashboard</title>
+    <link rel="stylesheet" href="/CSS/stylesheet.css">
 </head>
 
 <body>
@@ -28,7 +29,7 @@
     </div>
 
     <!-- New Reimbursement -->
-    <div id="create-user-reimbursement-container">
+    <div id="create-user-reimbursement-container" class="hidden-container">
         <h2>Create A New Reimbursement</h2>
         <form>
             <label for="create-reimbursement-employee">Employee Number</label>
@@ -55,19 +56,19 @@
     </div>
 
     <!-- View Reimbursements -->
-    <div id="user-view-all-reimbursements-container">
+    <div id="user-view-all-reimbursements-container" class="hidden-container">
         <h2>All Reimbursements Submitted by You</h2>
     </div>
-    <div id="user-view-pending-reimbursements-container">
+    <div id="user-view-pending-reimbursements-container" class="hidden-container">
         <h2>Pending Reimbursements Submitted by You</h2>
     </div>
 
     <!-- Update User -->
-    <div id="user-update-choice-container">
+    <div id="user-update-choice-container" class="hidden-container">
         <h2>What would you like to update?</h2>
         <form>
             <select id="user-update-user-choice">
-                <option value="blank"></option>
+                <option value="0"></option>
                 <option value="1">Name</option>
                 <option value="2">Username</option>
                 <option value="3">Password</option>
@@ -77,7 +78,7 @@
             <button type="button" id="user-update-choice-button">Submit</button>
         </form>
     </div>
-    <div id="user-update-name-choice-container">
+    <div id="user-update-name-choice-container" class="hidden-container">
         <h2>Update User's Name</h2>
         <div>
             <form>
@@ -90,21 +91,21 @@
                 <button type="button" id="user-update-name-choice-button">Submit</button>
             </form>
         </div>
-        <div id="user-update-first-name-container">
+        <div id="user-update-first-name-container" class="hidden-container">
             <form>
                 <label for="update-first-name-only">Updated First Name:</label>
                 <input id="update-first-name-only" type="text">
                 <button type="button" id="user-update-first-name-button">Submit</button>
             </form>
         </div>
-        <div id="user-update-last-name-container">
+        <div id="user-update-last-name-container" class="hidden-container">
             <form>
                 <label for="update-last-name-only">Updated Last Name:</label>
                 <input id="update-last-name-only" type="text">
                 <button type="button" id="user-update-last-name-button">Submit</button>
             </form>
         </div>
-        <div id="user-update-both-names-container">
+        <div id="user-update-both-names-container" class="hidden-container">
             <form>
                 <label for="update-first-name">Updated First Name:</label>
                 <input id="update-first-name" type="text">
@@ -114,7 +115,7 @@
             </form>
         </div>
     </div>
-    <div id="user-update-username-container">
+    <div id="user-update-username-container" class="hidden-container">
         <h2>Update Username</h2>
         <form>
             <label for="update-username">Updated Username</label>
@@ -122,7 +123,7 @@
             <button type="button" id="user-update-username-button">Submit</button>
         </form>
     </div>
-    <div id="user-update-password-container">
+    <div id="user-update-password-container" class="hidden-container">
         <h2>Update Password</h2>
         <form>
             <label for="update-old-password">Current Password</label>
@@ -134,7 +135,7 @@
             <button type="button" id="user-update-password-button">Submit</button>
         </form>
     </div>
-    <div id="user-update-email-container">
+    <div id="user-update-email-container" class="hidden-container">
         <h2>Update Email</h2>
         <form>
             <label for="update-email">Updated Email</label>
@@ -142,7 +143,7 @@
             <button type="button" id="user-update-email-button">Submit</button>
         </form>
     </div>
-    <div id="user-update-role-container">
+    <div id="user-update-role-container" class="hidden-container">
         <h2>Update Job Role</h2>
         <form>
             <label for="update-user-role">Updated Role</label>

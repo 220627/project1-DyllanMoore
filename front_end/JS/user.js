@@ -86,8 +86,36 @@ createUserReimbursementButton.addEventListener("click", function() {
     }
 });
 
+// View Reimbursements Go Here===========================================================================================================
 
 
+
+
+
+userUpdateChoiceButton.addEventListener("click", function() {
+    const userUpdateUserChoice = document.getElementById("user-update-user-choice");
+    switch(userUpdateUserChoice.value){
+        case "0":
+            formWarningAppendage.innerHTML = `You must make a selection.`;
+            userUpdateChoiceContainer.append(formWarningAppendage);
+            break;
+        case "1":
+            console.log("update name");
+            break;
+        case "2":
+            console.log("update username");
+            break;
+        case "3":
+            console.log("update password")
+            break;
+        case "4":
+            console.log("update email");
+            break;
+        case "5":
+            console.log("update job role");
+            break;
+    }
+});
 
 
 

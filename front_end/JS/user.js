@@ -1,7 +1,7 @@
-// Button consts
+//Button consts
 const userReimbursementOptionsButton = document.getElementById("user-reimbursement-options-button");
 const createUserReimbursementButton = document.getElementById("create-user-reimbursement-button");
-const userUpdateChoiceButton = documnet.getElementById("user-update-choice-button");
+const userUpdateChoiceButton = document.getElementById("user-update-choice-button");
 const userUpdateNameChoiceButton = document.getElementById("user-update-name-choice-button");
 const userUpdateFirstNameButton = document.getElementById("user-update-first-name-button");
 const userUpdateLastNameButton = document.getElementById("user-update-last-name-button");
@@ -14,7 +14,7 @@ const userUpdateRoleButton = document.getElementById("user-update-role-button");
 //Hidden Div Containers
 const userReimbursementOptionsContainer = document.getElementById("user-reimbursement-options-container");
 const createUserReimbursementContainer = document.getElementById("create-user-reimbursement-container");
-const userViewAllReimbursementsContainer = documnet.getElementById("user-view-all-reimbursements-container");
+const userViewAllReimbursementsContainer = document.getElementById("user-view-all-reimbursements-container");
 const userViewPendingReimbursementsContainer = document.getElementById("user-view-pending-reimbursements-container");
 const userUpdateChoiceContainer = document.getElementById("user-update-choice-container");
 const userUpdateNameChoiceContainer = document.getElementById("user-update-name-choice-container")
@@ -26,4 +26,131 @@ const userUpdatePasswordContainer = document.getElementById("user-update-passwor
 const userUpdateEmailContainer = document.getElementById("user-update-email-container");
 const userUpdateRoleContainer = document.getElementById("user-update-role-container");
 
-//Toggle Forms Hidden Containers
+//Appendage Consts 
+const formWarningAppendage = document.createElement("form-warning-appendage");
+const formAcceptedAppendage = document.createElement("form-accepted-appendage");
+
+
+//Start Button/Form Functions
+userReimbursementOptionsButton.addEventListener("click", function() {
+    const userReimbursementOptions = document.getElementById("user-reimbursement-options");
+    switch(userReimbursementOptions.value){
+        case "0":
+            formWarningAppendage.innerHTML = `You must make a selection.`;
+            userReimbursementOptionsContainer.appendChild(formWarningAppendage);
+            break;
+        case "1":
+            console.log("Create New Reimbursement");
+            break;
+        case "2": 
+            console.log("View All Reimbursements");
+            break;
+        case "3": 
+            console.log("View Pending Reimbursements");
+            break;
+        case "4":
+            console.log("Update User Information");
+            break;
+    }
+});
+
+createUserReimbursementButton.addEventListener("click", function() {
+    const createReimbursementEmployee = document.getElementById("create-reimbursement-employee").value;
+    const createReimbursementAmount = document.getElementById("create-reimbursement-amount").value;
+    const createReimbursementDescription = document.getElementById("create-reimbursement-description").value;
+    const createReimbursementDate = document.getElementById("create-reimbursement-date").value;
+    const createReimbursemntType = document.getElementById("create-reimbursement-type").value;
+    if( createReimbursementEmployee.length != 0 && createReimbursementAmount.length != 0 && createReimbursementDescription.length != 0
+        && createReimbursementDate.length != 0 && createReimbursemntType.length != 0) {
+        fetch("http://localhost:3000/newreimbursement", {
+            method: 'POST',
+            body: JSON.stringify({
+                "reimbursement_amount": createReimbursementAmount,
+                "reimbursement_submitted": createReimbursementDate,
+                "reimbursement_description": createReimbursementDescription,
+                "reimbursement_type_fk": createReimbursemntType,
+                "reimbursement_author_fk": createReimbursementEmployee,
+                "reimbursement_resolver_fk": 6,
+                "reimbursement_status_fk": 1
+            })
+        })
+        .then(function(response) {
+            if(response.status === 202) {
+                formAcceptedAppendage.innerHTML = `A reimbursment for ${createReimbursementAmount} was submitted for approval.`;
+                createUserReimbursementContainer.append(formAcceptedAppendage);
+            }
+        });
+        } else {
+            formWarningAppendage.innerHTML = `You are missing one or more inputs in your form.`;
+            createUserReimbursementContainer.append(formWarningAppendage);
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//End Button/Form Functions

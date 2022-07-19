@@ -17,16 +17,14 @@
         <h2>What would you like to do?</h2>
         <form>
             <select id="user-reimbursement-options">
-                <option value="blank"></option>
-                <option value="create-reimbursement">Create a New Reimbursement</option>
-                <option value="view-reimbursements">View Your Submitted Reimbursements</option>
-                <option value="edit-reimbursements">Edit Your Pending Reimbursements</option>
+                <option value="0"></option>
+                <option value="1">Create a New Reimbursement</option>
+                <option value="2">View Your Submitted Reimbursements</option>
+                <option value="3">Edit Your Pending Reimbursements</option>
                 <option value="4">Edit Your User Information</option>
             </select>
             <button type="button" id="user-reimbursement-options-button">Submit</button>
         </form>
-        <div>
-        </div>
     </div>
 
     <!-- New Reimbursement -->
@@ -43,7 +41,7 @@
             <input id="create-reimbursement-date" type="date">
             <label for="create-reimbursement-type">Which Best Describes Your Reimbursement?</label>
             <select id="create-reimbursement-type">
-                <option value="blank"></option>
+                <option value="0"></option>
                 <option value="1">Housing</option>
                 <option value="2">Food</option>
                 <option value="3">Travel</option>
@@ -159,7 +157,7 @@
             <button type="button" id="user-update-role-button">Submit</button>
         </form>
     </div>
-
+    <script src="/JS/user.js"></script>
 </body>
 
 </html>

@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
 </head>
+
 <body>
     <div>
         <h1>Monsters Inc.</h1>
@@ -19,10 +21,221 @@
                 <option value="1">View All Reimbursements</option>
                 <option value="2">View Reimbursements By Resolution</option>
                 <option value="3">View Reimbursements By Submitter</option>
-                <option value="4">Update Reimbursements</option>
-                <option value="5">Update Users</option>
+                <option value="4">Update Reimbursement Information</option>
+                <option value="5">Approve/Deny Reimbursements</option>
+                <option value="6">Update User Information</option>
+                <option value="7">Create a Reimbursement</option>
+            </select>
+            <button type="button">Submit</button>
+        </form>
+    </div>
+
+    <div>
+        <h2>View All Reimbursements</h2>
+    </div>
+    <div>
+        <h2>View Reimbursements By Resolution</h2>
+        <form>
+            <select id="admin-select-by-resolution">
+                <option value="blank"></option>
+                <option value="1">Pending</option>
+                <option value="2">Approved</option>
+                <option value="3">Denied</option>
+            </select>
+            <button type="button">Submit</button>
+        </form>
+        <div>
+            <h3>Pending Reimbursements</h3>
+        </div>
+        <div>
+            <h3>Approved Reimbursements</h3>
+        </div>
+        <div>
+            <h3>Denied Reimbursements</h3>
+        </div>
+    </div>
+    <div>
+        <h2>View Reimbursements By Submitter</h2>
+        <form>
+            <select id="admin-select-by-submitter">
+                <option value="blank"></option>
             </select>
         </form>
     </div>
+
+    <!-- Update Reimbursement Info -->
+    <div>
+        <h2>Select A Reimbursement To Edit</h2>
+        <form>
+            <select id="admin-delect-id-edit">
+                <option value="blank"></option>
+            </select>
+            <button type="button">Submit</button>
+        </form>
+    </div>
+    <div>
+        <div>
+            <h3>Original Reimbursement</h3>
+            <p>Insert Info</p>
+        </div>
+        <div>
+            <h3>Updated Reimbursement</h3>
+            <form>
+                <label for="admin-update-reimbursement-employee">Employee Number</label>
+                <input id="admin-update-reimbursement-employee" type="number">
+                <label for="admin-update-reimbursement-amount">Reimbursement Amount</label>
+                <input id="admin-update-reimbursement-amount" type="number">
+                <label for="admin-update-reimbursement-description">Reimbursement Description</label>
+                <input id="admin-update-reimbursement-description" type="text">
+                <label for="admin-update-reimbursement-date">Date Submitted</label>
+                <input id="admin-update-reimbursement-date" type="date">
+                <label for="admin-update-reimbursement-type">Which Best Describes Your Reimbursement?</label>
+                <select id="admin-update-reimbursement-type">
+                    <option value="blank"></option>
+                    <option value="1">Housing</option>
+                    <option value="2">Food</option>
+                    <option value="3">Travel</option>
+                    <option value="4">Profeesional Development</option>
+                    <option value="5">Other</option>
+                </select>
+                <label for="admin-update-reimbursement-if-other">If "Other" please describe.</label>
+                <input id="admin-update-reimbursement-if-other" type="text">
+                <button type="button">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Approve/Deny Reimbursements -->
+    <div>
+        <h2>Approve/Deny Reimbursements</h2>
+        <form>
+            <p>Radio Buttons and labels for each pending Reimbursement</p>
+            <button type="button">Submit</button>
+        </form>
+    </div>
+
+    <!-- Update User Information -->
+    <div>
+        <h2>What would you like to update?</h2>
+        <form>
+            <select id="user-update-user-choice">
+                <option value="blank"></option>
+                <option value="1">Name</option>
+                <option value="2">Username</option>
+                <option value="3">Password</option>
+                <option value="4">Email</option>
+                <option value="5">Job Role</option>
+            </select>
+            <button type="button">Submit</button>
+        </form>
+    </div>
+    <div>
+        <h2>Update User's Name</h2>
+        <div>
+            <form>
+                <select id="user-update-name-choice">
+                    <option value="blank"></option>
+                    <option value="1">First Name</option>
+                    <option value="2">Last Name</option>
+                    <option value="3">First & Last Names</option>
+                </select>
+                <button type="button">Submit</button>
+            </form>
+        </div>
+        <div>
+            <form>
+                <label for="update-first-name-only">Updated First Name:</label>
+                <input id="update-first-name-only" type="text">
+                <button type="button">Submit</button>
+            </form>
+        </div>
+        <div>
+            <form>
+                <label for="update-last-name-only">Updated Last Name:</label>
+                <input id="update-last-name-only" type="text">
+                <button type="button">Submit</button>
+            </form>
+        </div>
+        <div>
+            <form>
+                <label for="update-first-name">Updated First Name:</label>
+                <input id="update-first-name" type="text">
+                <label for="update-last-name">Updated Last Name:</label>
+                <input id="update-last-name" type="text">
+                <button type="button">Submit</button>
+            </form>
+        </div>
+    </div>
+    <div>
+        <h2>Update Username</h2>
+        <form>
+            <label for="update-username">Updated Username</label>
+            <input id="update-username" type="test">
+            <button type="button">Submit</button>
+        </form>
+    </div>
+    <div>
+        <h2>Update Password</h2>
+        <form>
+            <label for="update-old-password">Current Password</label>
+            <input id="update-onld-password" type="password">
+            <label for="update-new-password">New Password</label>
+            <input id="update-new-password" type="password">
+            <label for="confirm-new-password">Confirm New Password</label>
+            <input id="confirm-new-password" type="password">
+        </form>
+    </div>
+    <div>
+        <h2>Update Email</h2>
+        <form>
+            <label for="update-email">Updated Email</label>
+            <input id="updatte-email" type="email">
+            <button type="button">Submit</button>
+        </form>
+    </div>
+    <div>
+        <h2>Update Job Role</h2>
+        <form>
+            <label for="update-user-role">Updated Role</label>
+            <select id="update-user-role">
+                <option value="blank"></option>
+                <option value="1">Scarer</option>
+                <option value="2">Scarer Assistant</option>
+                <option value="3">Secretary</option>
+                <option value="4">Hazmat</option>
+                <option value="5">Key Master</option>
+            </select>
+            <button type="button">Submit</button>
+        </form>
+    </div>
+
+    <!-- Create New Reimbursement -->
+    <div>
+        <h2>Create A New Reimbursement</h2>
+        <form>
+            <label for="create-reimbursement-employee">Employee Number</label>
+            <input id="create-reimbursement-employee" type="number">
+            <label for="create-reimbursement-amount">Reimbursement Amount</label>
+            <input id="create-reimbursement-amount" type="number">
+            <label for="create-reimbursement-description">Reimbursement Description</label>
+            <input id="create-reimbursement-description" type="text">
+            <label for="create-reimbursement-date">Date Submitted</label>
+            <input id="create-reimbursement-date" type="date">
+            <label for="create-reimbursement-type">Which Best Describes Your Reimbursement?</label>
+            <select id="create-reimbursement-type">
+                <option value="blank"></option>
+                <option value="1">Housing</option>
+                <option value="2">Food</option>
+                <option value="3">Travel</option>
+                <option value="4">Profeesional Development</option>
+                <option value="5">Other</option>
+            </select>
+            <label for="create-reimbursement-if-other">If "Other" please describe.</label>
+            <input id="create-reimbursement-if-other" type="text">
+            <button type="button">Submit</button>
+        </form>
+    </div>
+
 </body>
+
 </html>

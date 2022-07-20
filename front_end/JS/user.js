@@ -40,16 +40,20 @@ userReimbursementOptionsButton.addEventListener("click", function() {
             userReimbursementOptionsContainer.appendChild(formWarningAppendage);
             break;
         case "1":
-            console.log("Create New Reimbursement");
+            createUserReimbursementContainer.style.display = "block";
+            userReimbursementOptionsContainer.style.display = "none";
             break;
         case "2": 
-            console.log("View All Reimbursements");
+            userViewAllReimbursementsContainer.style.display = "block";
+            userReimbursementOptionsContainer.style.display = "none";
             break;
         case "3": 
-            console.log("View Pending Reimbursements");
+            userViewPendingReimbursementsContainer.style.display = "block";
+            userReimbursementOptionsContainer.style.display = "none";
             break;
         case "4":
-            console.log("Update User Information");
+            userUpdateChoiceContainer.style.display = "block";
+            userReimbursementOptionsContainer.style.display = "none";
             break;
     }
 });
@@ -100,22 +104,49 @@ userUpdateChoiceButton.addEventListener("click", function() {
             userUpdateChoiceContainer.append(formWarningAppendage);
             break;
         case "1":
-            console.log("update name");
+            userUpdateNameChoiceContainer.style.display = "block";
+            userUpdateChoiceContainer.style.display = "none";
             break;
         case "2":
-            console.log("update username");
+            userUpdateUsernameContaienr.style.display = "block";
+            userUpdateChoiceContainer.style.display = "none";
             break;
         case "3":
-            console.log("update password")
+            userUpdatePasswordContainer.style.display = "block";
+            userUpdateChoiceContainer.style.display = "none";
             break;
         case "4":
-            console.log("update email");
+            userUpdateEmailContainer.style.display = "block";
+            userUpdateChoiceContainer.style.display = "none";
             break;
         case "5":
-            console.log("update job role");
+            userUpdateRoleContainer.style.display = "block";
+            userUpdateChoiceContainer.style.display = "none";
             break;
     }
 });
+
+userUpdateNameChoiceButton.addEventListener("click", function(){
+    const userUpdateNameChoice = document.getElementById("user-update-name-choice");
+    switch(userUpdateNameChoice.value){
+        case "0":
+            formWarningAppendage.innerHTML = `You must make a selection.`;
+            userUpdateChoiceContainer.append(formWarningAppendage);
+            break;
+        case "1":
+            userUpdateFirstNameContainer.style.display = "block";
+            userUpdateNameChoiceContainer.style.display = "none";
+            break;
+        case "2":
+            userUpdateLastNameContainer.style.display = "block";
+            userUpdateNameChoiceContainer.style.display = "none";
+            break;
+        case "3":
+            userUpdateBothNamesContainer.style.display = "block";
+            userUpdateNameChoiceContainer.style.display = "none";
+            break;
+    }
+})
 
 
 

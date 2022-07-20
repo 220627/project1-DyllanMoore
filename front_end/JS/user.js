@@ -5,7 +5,6 @@ const userUpdateChoiceButton = document.getElementById("user-update-choice-butto
 const userUpdateNameChoiceButton = document.getElementById("user-update-name-choice-button");
 const userUpdateFirstNameButton = document.getElementById("user-update-first-name-button");
 const userUpdateLastNameButton = document.getElementById("user-update-last-name-button");
-const userUpdateBothNamesButton = document.getElementById("user-update-both-names-button");
 const userUpdateUsernameButton = document.getElementById("user-update-username-button");
 const userUpdatePasswordButton = document.getElementById("user-update-password-button");
 const userUpdateEmailButton = document.getElementById("user-update-email-button");
@@ -20,7 +19,6 @@ const userUpdateChoiceContainer = document.getElementById("user-update-choice-co
 const userUpdateNameChoiceContainer = document.getElementById("user-update-name-choice-container")
 const userUpdateFirstNameContainer = document.getElementById("user-update-first-name-container");
 const userUpdateLastNameContainer = document.getElementById("user-update-last-name-container");
-const userUpdateBothNamesContainer = document.getElementById("user-update-both-names-container");
 const userUpdateUsernameContaienr = document.getElementById("user-update-username-container");
 const userUpdatePasswordContainer = document.getElementById("user-update-password-container");
 const userUpdateEmailContainer = document.getElementById("user-update-email-container");
@@ -144,10 +142,6 @@ userUpdateNameChoiceButton.addEventListener("click", function(){
             userUpdateLastNameContainer.style.display = "block";
             userUpdateNameChoiceContainer.style.display = "none";
             break;
-        case "3":
-            userUpdateBothNamesContainer.style.display = "block";
-            userUpdateNameChoiceContainer.style.display = "none";
-            break;
     }
 });
 
@@ -199,9 +193,7 @@ userUpdateLastNameButton.addEventListener("click", function() {
         formWarningAppendage.innerHTML = `New name can not be blank.`;
         userUpdateLastNameContainer.append(formWarningAppendage);
     }
-})
-
-
+});
 
 
 

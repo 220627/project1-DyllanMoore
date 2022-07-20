@@ -19,7 +19,7 @@ const userUpdateChoiceContainer = document.getElementById("user-update-choice-co
 const userUpdateNameChoiceContainer = document.getElementById("user-update-name-choice-container")
 const userUpdateFirstNameContainer = document.getElementById("user-update-first-name-container");
 const userUpdateLastNameContainer = document.getElementById("user-update-last-name-container");
-const userUpdateUsernameContaienr = document.getElementById("user-update-username-container");
+const userUpdateUsernameContainer = document.getElementById("user-update-username-container");
 const userUpdatePasswordContainer = document.getElementById("user-update-password-container");
 const userUpdateEmailContainer = document.getElementById("user-update-email-container");
 const userUpdateRoleContainer = document.getElementById("user-update-role-container");
@@ -195,7 +195,57 @@ userUpdateLastNameButton.addEventListener("click", function() {
     }
 });
 
+//Make in Java
+// userUpdateUsernameButton.addEventListener("click", function(){
+//     const updateUsername = document.getElementById("update-username");
+//     const updateUsernameId = document.getElementById("update-username-id");
+//     if(updateUsername != 0 && updateUsernameId != 0){
+//         fetch("http://localhost:3000/username/" + updateUsernameId, {
+//                 method: 'PUT',
+//                 body: JSON.stringify({
+//                     updateUsername
+//                 })
+//         })
+//         .then(function(response) {
+//             if(response.status === 202) {
+//                 formAcceptedAppendage.innerHTML = `You username was updated to ${updateUsername}.`;
+//                 userUpdateUsernameContainer.append(formAcceptedAppendage);
+//             }
+//         });
+//     } else {
+//         formWarningAppendage.innerHTML = `New username can not be blank.`;
+//         userUpdateUsernameContainer.append(formWarningAppendage);
+//     }
+// });
 
+// Make in Java
+// userUpdatePasswordButton.addEventListener("click", function(){
+//     const updateOldPassword = document.getElementById("update-old-password");
+//     const updatePassword = document.getElementById("update-new-password");
+//     const updatePasswordConfirm = document.getElementById("confirm-new-password");
+//     const updatePasswordId = document.getElementById("update-password-id");
+//     if(updatePassword != 0 && updatePasswordId != 0){
+//          if(updatePassword === updatePasswordConfirm && updatePassword != updateOldPassword){
+//              fetch("http://localhost:3000/password/" + updatePasswordId, {
+//                  method: 'PUT',
+//                  body: JSON.stringify({
+//                      updateUsername
+//                  })
+//              })
+//              .then(function(response) {
+//                  if(response.status === 202) {
+//                      formAcceptedAppendage.innerHTML = `You username was updated to ${updateUsername}.`;
+//                      userUpdateUsernameContainer.append(formAcceptedAppendage);
+//                  }
+//                   else {
+//                      formWarningAppendage.innerHTML = `New passwords must match and can not be the same as your old password.`;
+//                      userUpdatePasswordContainer.append(formWarningAppendage);
+//         }});
+//     } else {
+//         formWarningAppendage.innerHTML = `New password can not be blank.`;
+//         userUpdatePasswordContainer.append(formWarningAppendage);
+//     }
+// }});
 
 
 

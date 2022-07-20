@@ -1,6 +1,8 @@
 //Button consts
 const userReimbursementOptionsButton = document.getElementById("user-reimbursement-options-button");
 const createUserReimbursementButton = document.getElementById("create-user-reimbursement-button");
+const getAllReimbursementsIdButton = document.getElementById("get-all-reimbursements-id-button");
+const getPendingReimbursementsByIdButton = document.getElementById("get-pending-reimbursements-id-button");
 const userUpdateChoiceButton = document.getElementById("user-update-choice-button");
 const userUpdateNameChoiceButton = document.getElementById("user-update-name-choice-button");
 const userUpdateFirstNameButton = document.getElementById("user-update-first-name-button");
@@ -14,7 +16,9 @@ const userUpdateRoleButton = document.getElementById("user-update-role-button");
 const userReimbursementOptionsContainer = document.getElementById("user-reimbursement-options-container");
 const createUserReimbursementContainer = document.getElementById("create-user-reimbursement-container");
 const userViewAllReimbursementsContainer = document.getElementById("user-view-all-reimbursements-container");
+const allReimbursementsContainer = document.getElementById("all-reimbursements-container")
 const userViewPendingReimbursementsContainer = document.getElementById("user-view-pending-reimbursements-container");
+const pendingReimbursementsContainer = document.getElementById("pending-reimbursements-container");
 const userUpdateChoiceContainer = document.getElementById("user-update-choice-container");
 const userUpdateNameChoiceContainer = document.getElementById("user-update-name-choice-container")
 const userUpdateFirstNameContainer = document.getElementById("user-update-first-name-container");
@@ -90,9 +94,20 @@ createUserReimbursementButton.addEventListener("click", function() {
             createUserReimbursementContainer.append(formWarningAppendage);
     }
 });
+   
+const getAllReimbursementsId = document.getElementById("get-all-reimbursements-id").value;
+getAllReimbursementsIdButton.addEventListener("click", function() {
+    if(getAllReimbursementsId != 0) {
+        fetch("http://localhost:3000/reimbursement")
+        .then(response => response.json()) 
+        .then((data) => {
+            displayAllReimbursements(data);
+        });
+    }
+});
 
-// View Reimbursements Go Here===========================================================================================================
 
+//PENDING REIMBURSEMENTS HERE============================
 
 
 
@@ -316,61 +331,6 @@ userUpdateRoleButton.addEventListener("click", function() {
         userUpdateRoleContainer.append(formWarningAppendage);
     }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 //End Button/Form Functions

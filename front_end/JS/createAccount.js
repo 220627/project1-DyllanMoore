@@ -1,7 +1,8 @@
-//Button Consts
+//Login Button Consts
 const createSubmitButton = document.getElementById("create-submit-button");
 const haveAccountButton = document.getElementById("have-account-button");
 
+//Login Functions
 createSubmitButton.addEventListener("click", function(){
     const newUserAddedDiv = document.getElementById("new-user-added-div");
 

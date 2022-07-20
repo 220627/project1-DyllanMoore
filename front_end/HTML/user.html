@@ -58,8 +58,32 @@
     <!-- View Reimbursements -->
     <div id="user-view-all-reimbursements-container" class="hidden-container">
         <h2>All Reimbursements Submitted by You</h2>
+        <label for="get-all-reimbursements-id">Employee ID:</label>
+        <input id="get-all-reimbursements-id" type="number">
+        <button type="button" id="get-all-reimbursements-id-button">Submit</button>
+    </div>
+    <div id="all-reimbursements-container" class="hidden-container">
+        <table id="all-reimbursements-table">
+            <thead>All Reimbursements Submitted by You</thead>
+            <tr>
+                <th>ID</th>
+                <th>Amount</th>
+                <th>Date Submitted</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Author</th>
+                <th>Resolver</th>
+                <th>Resolution</th>
+            </tr>
+        </table>
     </div>
     <div id="user-view-pending-reimbursements-container" class="hidden-container">
+        <h2>Pending Reimbursements Submitted by You</h2>
+        <label for="get-pending-reimbursements-id">Employee ID:</label>
+        <input id="get-pending-reimbursements-id" type="number">
+        <button type="button" id="get-pending-reimbursements-id-button">Submit</button>
+    </div>
+    <div id="pending-reimbursements-container" class="hidden-container">
         <h2>Pending Reimbursements Submitted by You</h2>
     </div>
 

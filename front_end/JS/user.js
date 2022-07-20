@@ -82,6 +82,9 @@ createUserReimbursementButton.addEventListener("click", function() {
             if(response.status === 202) {
                 formAcceptedAppendage.innerHTML = `A reimbursment for ${createReimbursementAmount} was submitted for approval.`;
                 createUserReimbursementContainer.append(formAcceptedAppendage);
+            } else {
+                formWarningAppendage.innerHTML = `An error occurred, please try again or contact support.`;
+                createUserReimbursementContainer.append(formWarningAppendage);
             }
         });
         } else {
@@ -146,7 +149,32 @@ userUpdateNameChoiceButton.addEventListener("click", function(){
             userUpdateNameChoiceContainer.style.display = "none";
             break;
     }
-})
+});
+
+userUpdateFirstNameButton.addEventListener("click", function() {
+    const updateFirstNameOnly = document.getElementById("update-first-name-only").value;
+    const updateFirstNameOnlyId = document.getElementById("employee-first-name-only-id").value;
+    if(updateFirstNameOnly.length != 0 && updateFirstNameOnlyId != 0){
+        fetch("http://localhost:3000/firstname/"+ updateFirstNameOnlyId, {
+            method: 'PUT',
+            body: JSON.stringify({
+                updateFirstNameOnly
+            })
+        })
+        .then(function(response) {
+            if(response.status === 202){
+                formAcceptedAppendage.innerHTML = `Your first name was updated to ${updateFirstNameOnly}.`;
+                userUpdateFirstNameContainer.append(formAcceptedAppendage);
+            } else {
+                formWarningAppendage.innerHTML = `An error occurred, please try again or contact support.`;
+                userUpdateFirstNameContainer.append(formWarningAppendage);
+            }
+        });
+    } else {
+        formWarningAppendage.innerHTML = `New name can not be blank.`;
+        userUpdateFirstNameContainer.append(formWarningAppendage);
+    }
+});
 
 
 

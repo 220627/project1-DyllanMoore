@@ -247,8 +247,75 @@ userUpdateLastNameButton.addEventListener("click", function() {
 //     }
 // }});
 
+userUpdateEmailButton.addEventListener("click", function() {
+    const updateEmail = document.getElementById("update-email").value;
+    const updateEmailId = document.getElementById("update-email-id").value;
+    if(updateEmail.length != 0 && updateEmailId.length != 0) {
+        fetch("http://localhost:3000/useremail/"+ updateEmailId, {
+            method: 'PUT',
+            body: JSON.stringify({
+                updateEmail
+            })
+        })
+        .then(function(response) {
+            if(response.status === 202){
+                formAcceptedAppendage.innerHTML = `Your email was updated to ${updateEmail}.`;
+                userUpdateEmailContainer.append(formAcceptedAppendage);
+            } else {
+                formWarningAppendage.innerHTML = `An error occurred, please try again or contact support.`;
+                userUpdateEmailContainer.append(formWarningAppendage);
+            }
+        });
+    } else {
+        formWarningAppendage.innerHTML = `New email can not be blank.`;
+        userUpdateEmailContainer.append(formWarningAppendage);
+    }
+});
 
-
+userUpdateRoleButton.addEventListener("click", function() {
+    const updateUserRole = document.getElementById("update-user-role").value;
+    const updateUserRoleId = document.getElementById("update-user-role-id").value;
+    const updateUserRoleInt = parseInt(document.getElementById("update-user-role").value);
+    let userRoleName;
+    if(updateUserRole.length != 0 && updateUserRoleId.length != 0) {
+        fetch("http://localhost:3000/role/"+ updateUserRoleId, {
+            method: 'PUT',
+            body: JSON.stringify(
+                updateUserRoleInt
+            )
+        })
+        .then(function(response) {
+            if(response.status === 202){
+                userRole = document.getElementById("update-user-role");
+                switch(userRole.value) {
+                    case "1":
+                        userRoleName = "Scarer";
+                        break;
+                    case "2":
+                        userRoleName = "Scarer Assistant";
+                        break;
+                    case "3":
+                        userRoleName = "Secretary";
+                        break;
+                    case "4":
+                        userRoleName = "Hazmat";
+                        break;
+                    case "5":
+                        userRoleName = "Key Master";
+                        break;
+                }
+                formAcceptedAppendage.innerHTML = `Your role was updated to ${userRoleName}.`;
+                userUpdateRoleContainer.append(formAcceptedAppendage);
+            } else {
+                formWarningAppendage.innerHTML = `An error occurred, please try again or contact support.`;
+                userUpdateRoleContainer.append(formWarningAppendage);
+            }
+        });
+    } else {
+        formWarningAppendage.innerHTML = `New role can not be blank.`;
+        userUpdateRoleContainer.append(formWarningAppendage);
+    }
+});
 
 
 

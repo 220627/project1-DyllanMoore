@@ -176,6 +176,30 @@ userUpdateFirstNameButton.addEventListener("click", function() {
     }
 });
 
+userUpdateLastNameButton.addEventListener("click", function() {
+    const updateLastNameOnly = document.getElementById("update-last-name-only").value;
+    const updateLastNameOnlyId = document.getElementById("employee-last-name-only-id").value;
+    if(updateLastNameOnly.length != 0 && updateLastNameOnlyId.length != 0) {
+        fetch("http://localhost:3000/firstname/"+ updateLastNameOnlyId, {
+            method: 'PUT',
+            body: JSON.stringify({
+                updateLastNameOnly
+            })
+        })
+        .then(function(response) {
+            if(response.status === 202){
+                formAcceptedAppendage.innerHTML = `Your last name was updated to ${updateLastNameOnly}.`;
+                userUpdateLastNameContainer.append(formAcceptedAppendage);
+            } else {
+                formWarningAppendage.innerHTML = `An error occurred, please try again or contact support.`;
+                userUpdateLastNameContainer.append(formWarningAppendage);
+            }
+        });
+    } else {
+        formWarningAppendage.innerHTML = `New name can not be blank.`;
+        userUpdateLastNameContainer.append(formWarningAppendage);
+    }
+})
 
 
 

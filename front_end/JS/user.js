@@ -2,7 +2,7 @@
 const userReimbursementOptionsButton = document.getElementById("user-reimbursement-options-button");
 const createUserReimbursementButton = document.getElementById("create-user-reimbursement-button");
 const getAllReimbursementsIdButton = document.getElementById("get-all-reimbursements-id-button");
-const getPendingReimbursementsByIdButton = document.getElementById("get-pending-reimbursements-id-button");
+const getPendingReimbursementsButton = document.getElementById("get-pending-reimbursements-button");
 const userUpdateChoiceButton = document.getElementById("user-update-choice-button");
 const userUpdateNameChoiceButton = document.getElementById("user-update-name-choice-button");
 const userUpdateFirstNameButton = document.getElementById("user-update-first-name-button");
@@ -114,6 +114,30 @@ getAllReimbursementsIdButton.addEventListener("click", function() {
             }
         });
         allReimbursementsContainer.style.display = "block";
+    }
+});
+
+getPendingReimbursementsButton.addEventListener("click", function() {
+    const getPendingReimbursementsId = document.getElementById("get-pending-reimbursements-id").value;
+    if(getPendingReimbursementsId != 0) {
+        fetch("http://localhost:3000/reimbursement")
+        .then(response => response.json()) 
+        .then((data) => {
+            const pendingReimbursementsTable = document.getElementById("pending-reimbursements-table");
+            for(let i = 0; i < data.length; i++){
+                let dataArray = Object.values(data[i]);
+                let newReimbursementTableRow = pendingReimbursementsTable.insertRow(pendingReimbursementsTable.length);  
+                if (getPendingReimbursementsId == dataArray[5]) {
+                    if(dataArray[7] === 1){
+                        for(let j = 0; j < 8; j++){
+                            let newReimbursementTableData = newReimbursementTableRow.insertCell(j);
+                            newReimbursementTableData.innerHTML = dataArray[j];
+                        }
+                    }
+                }
+            }
+        });
+        pendingReimbursementsContainer.style.display = "block";
     }
 });
 

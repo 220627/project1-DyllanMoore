@@ -1,7 +1,3 @@
-//Global User
-alert(id.userIdLogin);
-console.log(alert(id.userId));
-
 //Button consts
 const userReimbursementOptionsButton = document.getElementById("user-reimbursement-options-button");
 const createUserReimbursementButton = document.getElementById("create-user-reimbursement-button");

@@ -95,8 +95,8 @@ createUserReimbursementButton.addEventListener("click", function() {
     }
 });
    
-let getAllReimbursementsId;
 getAllReimbursementsIdButton.addEventListener("click", function() {
+    const getAllReimbursementsId = document.getElementById("get-all-reimbursements-id").value;
     if(getAllReimbursementsId != 0) {
         fetch("http://localhost:3000/reimbursement")
         .then(response => response.json()) 
@@ -104,10 +104,12 @@ getAllReimbursementsIdButton.addEventListener("click", function() {
             const allReimbursementsTable = document.getElementById("all-reimbursements-table");
             for(let i = 0; i < data.length; i++){
                 let dataArray = Object.values(data[i]);
-                let newReimbursementTableRow = allReimbursementsTable.insertRow(allReimbursementsTable.length);
-                for(let j = 0; j < 8; j++){
-                    let newReimbursementTableData = newReimbursementTableRow.insertCell(j);
-                    newReimbursementTableData.innerHTML = dataArray[j];
+                let newReimbursementTableRow = allReimbursementsTable.insertRow(allReimbursementsTable.length);  
+                if (getAllReimbursementsId == dataArray[5]) {
+                    for(let j = 0; j < 8; j++){
+                        let newReimbursementTableData = newReimbursementTableRow.insertCell(j);
+                        newReimbursementTableData.innerHTML = dataArray[j];
+                    }
                 }
             }
         });

@@ -167,4 +167,44 @@ public class UserDAO implements UserDAOInterface{
 		return null;
 	}
 
+	@Override
+	public boolean updateUserPassword(int user, String password) {
+		try(Connection conn = ConnectionUtil.getConnection()) {
+			String sql = "update users set password = ? where user_id = ?;";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, password);
+			ps.setInt(2, user);
+			ps.executeUpdate();
+			System.out.println("User # " + user + "'s password was changed.");
+			
+			return true;
+			
+		} catch(SQLException e) {
+			System.out.println("Update User Password Failed");
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	@Override
+	public boolean updateUserUsername(int user, String username) {
+		try(Connection conn = ConnectionUtil.getConnection()) {
+			String sql = "update users set username = ? where user_id = ?;";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, username);
+			ps.setInt(2, user);
+			ps.executeUpdate();
+			System.out.println("User # " + user + "'s username was changed to " + username);
+			
+			return true;
+			
+		} catch(SQLException e) {
+			System.out.println("Update User Username Failed");
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+
+
 }

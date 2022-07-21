@@ -49,7 +49,9 @@ public class Launcher {
 		app.delete("/:user", uc.deleteUserHandler);
 		app.put("/firstname/:userId", uc.updateUserFirstNameHandler);
 		app.put("/lastname/:userId", uc.updateUserLastNameHandler);
-		app.put("useremail/:userId", uc.updateUserEmailHandler);
+		app.put("/useremail/:userId", uc.updateUserEmailHandler);
+		app.put("/password/:userId", uc.updateUserPasswordHandler);
+		app.put("/uasername/:userId", uc.updateUserUsernameHandler);
 		app.put("/role/:userId", uc.updateUserRoleHandler);
 		app.get("/user", uc.getUserHandler);
 		

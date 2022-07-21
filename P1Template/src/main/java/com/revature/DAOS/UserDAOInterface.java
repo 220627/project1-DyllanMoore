@@ -22,6 +22,10 @@ public interface UserDAOInterface {
 	
 	boolean updateUserRole(int user, int userRole);
 	
+	boolean updateUserPassword(int user, String password);
+	
+	boolean updateUserUsername(int user, String username);
+	
 	//Get All Users
 	ArrayList<User> getUser();
 	

@@ -101,17 +101,19 @@ getAllReimbursementsIdButton.addEventListener("click", function() {
         fetch("http://localhost:3000/reimbursement")
         .then(response => response.json()) 
         .then((data) => {
-            console.log(data);
+            const allReimbursementsTable = document.getElementById("all-reimbursements-table");
+            for(let i = 0; i < data.length; i++){
+                let dataArray = Object.values(data[i]);
+                let newReimbursementTableRow = allReimbursementsTable.insertRow(allReimbursementsTable.length);
+                for(let j = 0; j < 8; j++){
+                    let newReimbursementTableData = newReimbursementTableRow.insertCell(j);
+                    newReimbursementTableData.innerHTML = dataArray[j];
+                }
+            }
         });
         allReimbursementsContainer.style.display = "block";
     }
 });
-
-
-//PENDING REIMBURSEMENTS HERE============================
-
-
-
 
 userUpdateChoiceButton.addEventListener("click", function() {
     const userUpdateUserChoice = document.getElementById("user-update-user-choice");
@@ -211,57 +213,56 @@ userUpdateLastNameButton.addEventListener("click", function() {
     }
 });
 
-//Make in Java
-// userUpdateUsernameButton.addEventListener("click", function(){
-//     const updateUsername = document.getElementById("update-username");
-//     const updateUsernameId = document.getElementById("update-username-id");
-//     if(updateUsername != 0 && updateUsernameId != 0){
-//         fetch("http://localhost:3000/username/" + updateUsernameId, {
-//                 method: 'PUT',
-//                 body: JSON.stringify({
-//                     updateUsername
-//                 })
-//         })
-//         .then(function(response) {
-//             if(response.status === 202) {
-//                 formAcceptedAppendage.innerHTML = `You username was updated to ${updateUsername}.`;
-//                 userUpdateUsernameContainer.append(formAcceptedAppendage);
-//             }
-//         });
-//     } else {
-//         formWarningAppendage.innerHTML = `New username can not be blank.`;
-//         userUpdateUsernameContainer.append(formWarningAppendage);
-//     }
-// });
+userUpdateUsernameButton.addEventListener("click", function(){
+    const updateUsername = document.getElementById("update-username");
+    const updateUsernameId = document.getElementById("update-username-id");
+    if(updateUsername != 0 && updateUsernameId != 0){
+        fetch("http://localhost:3000/username/" + updateUsernameId, {
+                method: 'PUT',
+                body: JSON.stringify({
+                    updateUsername
+                })
+        })
+        .then(function(response) {
+            if(response.status === 202) {
+                formAcceptedAppendage.innerHTML = `You username was updated to ${updateUsername}.`;
+                userUpdateUsernameContainer.append(formAcceptedAppendage);
+            }
+        });
+    } else {
+        formWarningAppendage.innerHTML = `New username can not be blank.`;
+        userUpdateUsernameContainer.append(formWarningAppendage);
+    }
+});
 
-// Make in Java
-// userUpdatePasswordButton.addEventListener("click", function(){
-//     const updateOldPassword = document.getElementById("update-old-password");
-//     const updatePassword = document.getElementById("update-new-password");
-//     const updatePasswordConfirm = document.getElementById("confirm-new-password");
-//     const updatePasswordId = document.getElementById("update-password-id");
-//     if(updatePassword != 0 && updatePasswordId != 0){
-//          if(updatePassword === updatePasswordConfirm && updatePassword != updateOldPassword){
-//              fetch("http://localhost:3000/password/" + updatePasswordId, {
-//                  method: 'PUT',
-//                  body: JSON.stringify({
-//                      updateUsername
-//                  })
-//              })
-//              .then(function(response) {
-//                  if(response.status === 202) {
-//                      formAcceptedAppendage.innerHTML = `You username was updated to ${updateUsername}.`;
-//                      userUpdateUsernameContainer.append(formAcceptedAppendage);
-//                  }
-//                   else {
-//                      formWarningAppendage.innerHTML = `New passwords must match and can not be the same as your old password.`;
-//                      userUpdatePasswordContainer.append(formWarningAppendage);
-//         }});
-//     } else {
-//         formWarningAppendage.innerHTML = `New password can not be blank.`;
-//         userUpdatePasswordContainer.append(formWarningAppendage);
-//     }
-// }});
+Make in Java
+userUpdatePasswordButton.addEventListener("click", function(){
+    const updateOldPassword = document.getElementById("update-old-password");
+    const updatePassword = document.getElementById("update-new-password");
+    const updatePasswordConfirm = document.getElementById("confirm-new-password");
+    const updatePasswordId = document.getElementById("update-password-id");
+    if(updatePassword != 0 && updatePasswordId != 0){
+         if(updatePassword === updatePasswordConfirm && updatePassword != updateOldPassword){
+             fetch("http://localhost:3000/password/" + updatePasswordId, {
+                 method: 'PUT',
+                 body: JSON.stringify({
+                     updateUsername
+                 })
+             })
+             .then(function(response) {
+                 if(response.status === 202) {
+                     formAcceptedAppendage.innerHTML = `You username was updated to ${updateUsername}.`;
+                     userUpdateUsernameContainer.append(formAcceptedAppendage);
+                 }
+                  else {
+                     formWarningAppendage.innerHTML = `New passwords must match and can not be the same as your old password.`;
+                     userUpdatePasswordContainer.append(formWarningAppendage);
+        }});
+    } else {
+        formWarningAppendage.innerHTML = `New password can not be blank.`;
+        userUpdatePasswordContainer.append(formWarningAppendage);
+    }
+}});
 
 userUpdateEmailButton.addEventListener("click", function() {
     const updateEmail = document.getElementById("update-email").value;

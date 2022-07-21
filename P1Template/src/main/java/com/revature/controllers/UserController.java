@@ -78,6 +78,26 @@ public class UserController {
 		
 	};
 	
+	public Handler updateUserPasswordHandler = (ctx) -> {
+		int userId = Integer.parseInt(ctx.pathParam("userId"));
+		String password = ctx.body();
+		uDAO.updateUserPassword(userId, password);
+		
+		ctx.status(202);
+		ctx.result("User Id # " + userId + "'s password has been changed.");
+	};
+	
+	public Handler updateUserUsernameHandler = (ctx) -> {
+		int userId = Integer.parseInt(ctx.pathParam("userId"));
+		String username = ctx.body();
+		uDAO.updateUserUsername(userId, username);
+		
+		ctx.status(202);
+		ctx.result("User Id # " + userId + "'s username has been updated to " + username);
+	};
+	
+	
+	
 	
 	//Get All Users
 	public Handler getUserHandler = (ctx) -> {

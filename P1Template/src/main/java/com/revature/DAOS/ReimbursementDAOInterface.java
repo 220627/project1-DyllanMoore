@@ -22,12 +22,5 @@ public interface ReimbursementDAOInterface {
 	
 	//Get Reimbursements
 	ArrayList<Reimbursement> getReimbursement();
-		
-	public Reimbursement getReimbursementByStatus(int resolution);
-	
-	public Reimbursement getReimbursementByAuthor(int author);
-	
-	public Reimbursement getReimbursementByResolver(int resolver);
-
 	
 }

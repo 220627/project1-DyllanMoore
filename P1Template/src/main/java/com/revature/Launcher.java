@@ -43,10 +43,6 @@ public class Launcher {
 		app.put("/updatetype/:updatetype", rc.updateReimbursementTypeHandler);
 		app.put("/updateresolution/:updateresolution", rc.updateReimbursementResolutionHandler);
 		app.get("/reimbursement", rc.getReimbursementHandler);
-		app.get("/reimbursementstatus/:resolution", rc.getReimbursementByStatusHandler);
-		app.get("/reimbursementauthor/:authorId", rc.getReimbursementByAuthorHandler);
-		app.get("reimbursementresolver/:resolverId", rc.getReimbursementByResolverHandler);
-
 		
 		//User Actions
 		app.post("/newuser", uc.insertUserHandler);

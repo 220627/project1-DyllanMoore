@@ -95,14 +95,15 @@ createUserReimbursementButton.addEventListener("click", function() {
     }
 });
    
-const getAllReimbursementsId = document.getElementById("get-all-reimbursements-id").value;
+let getAllReimbursementsId;
 getAllReimbursementsIdButton.addEventListener("click", function() {
     if(getAllReimbursementsId != 0) {
         fetch("http://localhost:3000/reimbursement")
         .then(response => response.json()) 
         .then((data) => {
-            displayAllReimbursements(data);
+            console.log(data);
         });
+        allReimbursementsContainer.style.display = "block";
     }
 });
 

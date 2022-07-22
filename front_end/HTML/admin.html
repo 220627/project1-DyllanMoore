@@ -93,6 +93,20 @@
                 <th>Resolution</th>
             </tr>
         </table>
+        <div id="admin-update-resolution-container">
+            <h3>Update Pending Reimbursement Resolution</h3>
+            <form>
+                <label for="update-pending-id">Reimbursement ID:</label>
+                <input id="update-pending-id" type="number">
+                <label for="update-pending-resolution">Resolution:</label>
+                <select id="update-pending-resolution">
+                    <option value="0"></option>
+                    <option value="2">Approve</option>
+                    <option value="3">Deny</option>
+                </select>
+                <button type="button" id="update-resolution-button">Submit</button>
+            </form>
+        </div>
     </div>
 
     <!-- Update User -->

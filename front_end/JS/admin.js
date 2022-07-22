@@ -10,16 +10,11 @@
 const adminReimbursementOptionsButton = document.getElementById("admin-reimbursement-options-button");
 const generateAllReimbursementsButton = document.getElementById("generate-all-reimbursements");
 const generatePendingReimbursementsButton = document.getElementById("generate-pending-reimbursements");
+const updateResolutionButton = document.getElementById("update-resolution-button");
 //Hidden Div Containers
-const adminReimbursementOptionsContainer = document.getElementById("admin-reimbursement-options-container");
-const adminViewAllReimbursementsContainer = document.getElementById("admin-view-all-reimbursements-container");
 const adminAllReimbursementsContainer = document.getElementById("admin-all-reimbursements-container")
-const adminViewPendingReimbursementsContainer = document.getElementById("admin-view-pending-reimbursements-container");
 const adminPendingReimbursementsContainer = document.getElementById("admin-pending-reimbursements-container");
-
-
-//Appendage Consts 
-
+const adminUpdateResolutionContainer = document.getElementById("admin-update-resolution-container");
 
 //Start Button/Form Functions
 generateAllReimbursementsButton.addEventListener("click", function() {
@@ -30,15 +25,14 @@ generateAllReimbursementsButton.addEventListener("click", function() {
             for(let i = 0; i < data.length; i++){
                 let dataArray = Object.values(data[i]);
                 let newReimbursementTableRow = allReimbursementsTable.insertRow(allReimbursementsTable.length);  
-                if (getAllReimbursementsId == dataArray[5]) {
-                    for(let j = 0; j < 8; j++){
-                        let newReimbursementTableData = newReimbursementTableRow.insertCell(j);
-                        newReimbursementTableData.innerHTML = dataArray[j];
-                    }
+                for(let j = 0; j < 8; j++){
+                    let newReimbursementTableData = newReimbursementTableRow.insertCell(j);
+                    newReimbursementTableData.innerHTML = dataArray[j];
                 }
+                
             }
         });
-        allReimbursementsContainer.style.display = "block";
+        adminAllReimbursementsContainer.style.display = "block";
     
 });
 
@@ -50,21 +44,51 @@ generatePendingReimbursementsButton.addEventListener("click", function() {
             for(let i = 0; i < data.length; i++){
                 let dataArray = Object.values(data[i]);
                 let newReimbursementTableRow = pendingReimbursementsTable.insertRow(pendingReimbursementsTable.length);  
-                if (getPendingReimbursementsId == dataArray[5]) {
-                    if(dataArray[7] === 1){
-                        for(let j = 0; j < 8; j++){
-                            let newReimbursementTableData = newReimbursementTableRow.insertCell(j);
-                            newReimbursementTableData.innerHTML = dataArray[j];
-                        }
+                if(dataArray[7] === 1){
+                    for(let j = 0; j < 8; j++){
+                        let newReimbursementTableData = newReimbursementTableRow.insertCell(j);
+                        newReimbursementTableData.innerHTML = dataArray[j];
                     }
                 }
             }
         });
-        pendingReimbursementsContainer.style.display = "block";
+        adminPendingReimbursementsContainer.style.display = "block";
     
 });
 
+updateResolutionButton.addEventListener("click", function() {
+    const updatePendingId = document.getElementById("update-pending-id").value;
+    const updatePendingResolution = document.getElementById("update-pending-resolution").value;
+    const updatePendingResolutionInt = parseInt(document.getElementById("update-pending-resolution").value);
+    let resolution;
+    if(updatePendingId.length != 0 && updatePendingResolution.length != 0){
+        fetch("http://localhost:3000/updateresolution/" + updatePendingId, {
+            method: 'PUT',
+            body: updatePendingResolutionInt
+        })
+        .then (function(response) {
+            if(response.status === 202){
+                switch(updatePendingResolution){
+                    case "2": 
+                        resolution = "Approved";
+                        break;
+                    case "3":
+                        resolution = "Denied";
+                        break;
+                }
+                formAcceptedAppendage.innerHTML = `Reimbursement ID # ${updatePendingId} was ${resolution}.`;
+                adminUpdateResolutionContainer.append(formAcceptedAppendage);
+            } else {
+                formWarningAppendage.innerHTML = `An error occured, please try again or contact support.`;
+                adminUpdateResolutionContainer.append(formWarningAppendage);
+            }
+        });
+    } else {
+        formWarningAppendage.innerHTML = `One or more inputs is blank.`;
+        adminUpdateResolutionContainer.append(formWarningAppendage);
+    }
 
+});
 
 
 

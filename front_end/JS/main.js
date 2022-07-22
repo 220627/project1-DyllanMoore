@@ -1,4 +1,5 @@
 //Button consts
+const userReimbursementOptionsButton = document.getElementById("user-reimbursement-options-button");
 const createUserReimbursementButton = document.getElementById("create-user-reimbursement-button");
 const userUpdateChoiceButton = document.getElementById("user-update-choice-button");
 const userUpdateNameChoiceButton = document.getElementById("user-update-name-choice-button");
@@ -10,6 +11,7 @@ const userUpdateEmailButton = document.getElementById("user-update-email-button"
 const userUpdateRoleButton = document.getElementById("user-update-role-button");
 
 //Hidden Div Containers
+const userReimbursementOptionsContainer = document.getElementById("user-reimbursement-options-container");
 const createUserReimbursementContainer = document.getElementById("create-user-reimbursement-container");
 const userUpdateChoiceContainer = document.getElementById("user-update-choice-container");
 const userUpdateNameChoiceContainer = document.getElementById("user-update-name-choice-container")
@@ -19,12 +21,40 @@ const userUpdateUsernameContainer = document.getElementById("user-update-usernam
 const userUpdatePasswordContainer = document.getElementById("user-update-password-container");
 const userUpdateEmailContainer = document.getElementById("user-update-email-container");
 const userUpdateRoleContainer = document.getElementById("user-update-role-container");
+const userViewAllReimbursementsContainer = document.getElementById("user-view-all-reimbursements-container");
+const userViewPendingReimbursementsContainer = document.getElementById("user-view-pending-reimbursements-container");
 
 //Appendage Consts 
 const formWarningAppendage = document.createElement("form-warning-appendage");
 const formAcceptedAppendage = document.createElement("form-accepted-appendage");
 
 //Start Button/Form Functions
+userReimbursementOptionsButton.addEventListener("click", function() {
+    const userReimbursementOptions = document.getElementById("user-reimbursement-options");
+    switch(userReimbursementOptions.value){
+        case "0":
+            formWarningAppendage.innerHTML = `You must make a selection.`;
+            userReimbursementOptionsContainer.appendChild(formWarningAppendage);
+            break;
+        case "1":
+            createUserReimbursementContainer.style.display = "block";
+            userReimbursementOptionsContainer.style.display = "none";
+            break;
+        case "2": 
+            userViewAllReimbursementsContainer.style.display = "block";
+            userReimbursementOptionsContainer.style.display = "none";
+            break;
+        case "3": 
+            userViewPendingReimbursementsContainer.style.display = "block";
+            userReimbursementOptionsContainer.style.display = "none";
+            break;
+        case "4":
+            userUpdateChoiceContainer.style.display = "block";
+            userReimbursementOptionsContainer.style.display = "none";
+            break;
+    }
+});
+
 createUserReimbursementButton.addEventListener("click", function() {
     const createReimbursementEmployee = document.getElementById("create-reimbursement-employee").value;
     const createReimbursementAmount = document.getElementById("create-reimbursement-amount").value;

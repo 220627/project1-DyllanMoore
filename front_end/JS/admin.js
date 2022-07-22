@@ -1,11 +1,3 @@
-//admin-reimbursement-options-container
-//admin-view-all-reimbursements-container
-//admin-all-reimbursements-container
-//admin-all-reimbursements-table
-//admin-view-pending-reimbursements-container
-//admin-pending-reimbursements-table
-//edit pending
-
 //Button consts
 const adminReimbursementOptionsButton = document.getElementById("admin-reimbursement-options-button");
 const generateAllReimbursementsButton = document.getElementById("generate-all-reimbursements");
@@ -29,11 +21,9 @@ generateAllReimbursementsButton.addEventListener("click", function() {
                     let newReimbursementTableData = newReimbursementTableRow.insertCell(j);
                     newReimbursementTableData.innerHTML = dataArray[j];
                 }
-                
             }
         });
         adminAllReimbursementsContainer.style.display = "block";
-    
 });
 
 generatePendingReimbursementsButton.addEventListener("click", function() {
@@ -89,8 +79,5 @@ updateResolutionButton.addEventListener("click", function() {
     }
 
 });
-
-
-
 
 //End Button/Form Functions

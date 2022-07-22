@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 import com.revature.controllers.ReimbursementController;
-import com.revature.controllers.ReimbursementTypeController;
 import com.revature.controllers.UserController;
 import com.revature.utils.ConnectionUtil;
 
@@ -28,19 +27,11 @@ public class Launcher {
 				).start(3000);
 		
 		ReimbursementController rc = new ReimbursementController();
-		ReimbursementTypeController rtc = new ReimbursementTypeController();
 		UserController uc = new UserController();
 		
 		
-		//Update Reimbursement Type
-		app.put("/reimbursement/:type", rtc.updateReimbursementTypeNameHandler);
-		
 		//Reimbursement Actions
 		app.post("/newreimbursement", rc.newReimbursementHandler);
-		app.delete("/deletereimbursement/:reimbursementId", rc.deleteReimbursementHandler);
-		app.put("/updateamount/:updateamount", rc.updateReimbursementAmountHandler);
-		app.put("/updatedescription/:updatedescription", rc.updateReimbursementDescriptionHandler);
-		app.put("/updatetype/:updatetype", rc.updateReimbursementTypeHandler);
 		app.put("/updateresolution/:updateresolution", rc.updateReimbursementResolutionHandler);
 		app.get("/reimbursement", rc.getReimbursementHandler);
 		

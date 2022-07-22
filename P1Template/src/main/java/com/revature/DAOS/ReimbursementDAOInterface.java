@@ -9,12 +9,6 @@ public interface ReimbursementDAOInterface {
 	boolean newReimbursement(Reimbursement reimbursement);
 	
 	//Update Reimbursement
-	boolean updateReimbursementAmount(int reimbursementId, int amount);
-	
-	boolean updateReimbursementDescription(int reimbursementId, String description);
-	
-	boolean updateReimbursementType(int reimbursementUpdateId, int type);
-	
 	boolean updateReimbursementResolution(int reimbursementId, int resolution);
 	
 	//Delete Reimbursement

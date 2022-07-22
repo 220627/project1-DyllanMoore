@@ -35,34 +35,6 @@ public class ReimbursementController {
 	};
 	
 	//Update Reimbursements
-	public Handler updateReimbursementAmountHandler = (ctx) -> {
-		int reimbursementAmountId = Integer.parseInt(ctx.pathParam("updateamount"));
-		int amount = Integer.parseInt(ctx.body());
-		rDAO.updateReimbursementAmount(reimbursementAmountId, amount);
-		
-		ctx.status(202);
-		ctx.result("Reimbursement Id # " + reimbursementAmountId + "'s amount has been changed to " + amount);
-	};
-	
-	
-	public Handler updateReimbursementDescriptionHandler = (ctx) -> {
-		int reimbursementDescriptionId = Integer.parseInt(ctx.pathParam("updatedescription"));
-		String description = ctx.body();
-		rDAO.updateReimbursementDescription(reimbursementDescriptionId, description);
-		
-		ctx.status(202);
-		ctx.result("Reimbursement Id # " + reimbursementDescriptionId + "'s description has been changed");
-	};
-	
-	public Handler updateReimbursementTypeHandler = (ctx) -> {
-		int reimbursementTypeId = Integer.parseInt(ctx.pathParam("updatetype"));
-		int type = Integer.parseInt(ctx.body());
-		rDAO.updateReimbursementType(reimbursementTypeId, type);
-		
-		ctx.status(202);
-		ctx.result("Reimbursement Id # " + reimbursementTypeId + "'s type has been changed to Type Id # " + type);
-	};
-	
 	public Handler updateReimbursementResolutionHandler = (ctx) -> {
 		int reimbursementUpdateId = Integer.parseInt(ctx.pathParam("updateresolution"));
 		int resolution = Integer.parseInt(ctx.body());

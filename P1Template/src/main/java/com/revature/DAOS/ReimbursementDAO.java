@@ -46,65 +46,6 @@ public class ReimbursementDAO implements ReimbursementDAOInterface{
 		return false;
 	}
 
-	@Override
-	public boolean updateReimbursementAmount(int reimbursementAmountId, int amount) {
-		try(Connection conn = ConnectionUtil.getConnection()) {
-			String sql = "update reimbursements set reimbursement_amount = ? where reimbursement_id = ?;";
-			PreparedStatement ps = conn.prepareStatement(sql);
-			ps.setInt(1, amount);
-			ps.setInt(2, reimbursementAmountId);
-			
-			ps.executeUpdate();
-			System.out.println("Reimbursement # " + reimbursementAmountId + "'s amount was changed to $" + amount);
-			
-			return true;
-			
-		} catch(SQLException e) {
-			System.out.println("Update Reimbursement Amount Failed");
-			e.printStackTrace();
-		}
-		return false;
-	}
-
-	@Override
-	public boolean updateReimbursementDescription(int reimbursementDescriptionId, String description) {
-		try(Connection conn = ConnectionUtil.getConnection()) {
-			String sql = "update reimbursements set reimbursement_description = ? where reimbursement_id = ?;";
-			PreparedStatement ps = conn.prepareStatement(sql);
-			ps.setString(1, description);
-			ps.setInt(2, reimbursementDescriptionId);
-			
-			ps.executeUpdate();
-			System.out.println("Reimbursement # " + reimbursementDescriptionId + "'s description was changed to " + description);
-			
-			return true;
-			
-		} catch(SQLException e) {
-			System.out.println("Update Reimbursement Description Failed");
-			e.printStackTrace();
-		}
-		return false;
-	}
-
-	@Override
-	public boolean updateReimbursementType(int reimbursementTypeId, int type) {
-		try(Connection conn = ConnectionUtil.getConnection()) {
-			String sql = "update reimbursements set reimbursement_type_fk = ? where reimbursement_id = ?;";
-			PreparedStatement ps = conn.prepareStatement(sql);
-			ps.setInt(1, type);
-			ps.setInt(2, reimbursementTypeId);
-			
-			ps.executeUpdate();
-			System.out.println("Reimbursement # " + reimbursementTypeId + "'s type was changed to type # " + type);
-			
-			return true;
-			
-		} catch(SQLException e) {
-			System.out.println("Update Reimbursement Type Failed");
-			e.printStackTrace();
-		}
-		return false;
-	}
 
 	@Override
 	public boolean updateReimbursementResolution(int reimbursementUpdateId, int resolution) {

@@ -8,26 +8,29 @@
     <link rel="stylesheet" href="/CSS/stylesheet.css">
 </head>
 <body>
-    <div>
-        <img src="/resources/logo.png">
-        <h2>We scare because we care.</h2>
+    <div class="left-border"></div>    
+    <div class="right-border"></div>
+    <div class="centered-div">
+        <img src="/resources/logo.png" class="logo">
+        <h2 class="small-margin header">Employee Reimbursement System</h2>
     </div>
-    <div id="login-failed-div">
+    <div id="login-failed-div" class="centered-div failed">
     </div>
-    <div>
-        <form>
-            <label for="login-username">Username:</label>
-            <input id="login-username" type="text">
-            <label for="login-password">Password:</label>
-            <input id="login-password" type="password">
-            <button type="button" id="login-button" class="submit-button">Submit</button>
-        </form>
+    <div class="centered-div">
+            <label for="login-username" class="input-label small-margin">Username:</label>
+            <input id="login-username" type="text" class="input small-margin">
+            <br>
+            <label for="login-password" class="input-label small-margin">Password:</label>
+            <input id="login-password" type="password" class="input small-margin">
+            <br>
+            <button type="button" id="login-button" class="submit-button small-margin">Submit</button>
     </div>
-    <div>
-        <a id="forgot-username-button">Forgot Username?</a>
-        <a id="create-account-button">Create an Account</a>
-    </div>
+    <div class="centered-div">
+        <a id="forgot-username-button" class="link">Forgot Username?</a>
+        <br>
+        <a id="create-account-button" class="link">Create an Account</a>
+    </div>    
+
     <script src="/JS/login.js"></script>
-    <script src="/JS/user.js"></script>
 </body>
 </html>

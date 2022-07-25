@@ -15,6 +15,11 @@
     --radius: 5px;
 }
 
+body {
+    padding: 0%;
+    margin: 0%;
+    background-color: var(--white);
+}
 /* Buttons */
 .submit-button {
     border: 2px solid var(--black);
@@ -30,13 +35,74 @@
     box-shadow: var(--hover-shadow);
 }
 
+/* Images */
+.logo {
+    width: 50vw;
+    padding-top: 1vh;
+    padding-bottom: 0%;
+    margin: 0%;
+}
 
+/* Divs */
+.centered-div {
+    text-align: center;
+}
 
+.left-border, .right-border {
+    height: 100vh;
+    width: 15vw;
+    background-color: var(--green);
+}
 
+.left-border {
+    float: left;
+    display: inline;
+}
 
-
-
+.right-border{
+    float: right;
+    display: inline;
+}
 
 .hidden-container {
     display: none;
+}
+
+/* Text */
+.header {
+    font-size: var(--large-font);
+}
+
+.input-label {
+    color: var(--black);
+    font-size: var(--med-font);
+}
+
+.link {
+    font-size: var(--med-font);
+}
+
+.link:hover {
+    cursor: pointer;
+    color: var(--purple);
+}
+
+.failed {
+    color: red;
+    font-size: var(--med-font);
+}
+
+/* Inputs & Labels */
+.input {
+    font-size: var(--med-font);
+}
+
+.input:focus {
+    outline: none;
+    border: 3px solid var(--purple);
+    border-radius: 5px;
+}
+/* Margins & Padding */
+.small-margin {
+    margin: 2vh 0vw;
 }

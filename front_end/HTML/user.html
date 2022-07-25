@@ -11,6 +11,7 @@
 
 <body>
     <div>
+        <img src="/resources/logo_small.png">
         <h1>Monsters Inc.</h1>
         <h2>We scare because we care.</h2>
     </div>
@@ -24,7 +25,7 @@
                 <option value="3">View Your Pending Reimbursements</option>
                 <option value="4">Edit Your User Information</option>
             </select>
-            <button type="button" id="user-reimbursement-options-button">Submit</button>
+            <button type="button" id="user-reimbursement-options-button" class="submit-button">Submit</button>
         </form>
     </div>
 
@@ -51,7 +52,7 @@
             </select>
             <label for="create-reimbursement-if-other">If "Other" please describe.</label>
             <input id="create-reimbursement-if-other" type="text">
-            <button type="button" id="create-user-reimbursement-button">Submit</button>
+            <button type="button" id="create-user-reimbursement-button" class="submit-button">Submit</button>
         </form>
     </div>
 
@@ -81,7 +82,7 @@
         <h2>Pending Reimbursements Submitted by You</h2>
         <label for="get-pending-reimbursements-id">Employee ID:</label>
         <input id="get-pending-reimbursements-id" type="number">
-        <button type="button" id="get-pending-reimbursements-button">Submit</button>
+        <button type="button" id="get-pending-reimbursements-button" class="submit-button">Submit</button>
     </div>
     <div id="pending-reimbursements-container" class="hidden-container">
         <table id="pending-reimbursements-table">
@@ -111,7 +112,7 @@
                 <option value="4">Email</option>
                 <option value="5">Job Role</option>
             </select>
-            <button type="button" id="user-update-choice-button">Submit</button>
+            <button type="button" id="user-update-choice-button" class="submit-button">Submit</button>
         </form>
     </div>
 
@@ -123,7 +124,7 @@
                 <option value="1">First Name</option>
                 <option value="2">Last Name</option>
             </select>
-            <button type="button" id="user-update-name-choice-button">Submit</button>
+            <button type="button" id="user-update-name-choice-button" class="submit-button">Submit</button>
         </form>
     </div>
 
@@ -133,7 +134,7 @@
             <input id="employee-first-name-only-id" type="number">
             <label for="update-first-name-only">Updated First Name:</label>
             <input id="update-first-name-only" type="text">
-            <button type="button" id="user-update-first-name-button">Submit</button>
+            <button type="button" id="user-update-first-name-button" class="submit-button">Submit</button>
         </form>
     </div>
 
@@ -143,7 +144,7 @@
             <input id="employee-last-name-only-id" type="number">
             <label for="update-last-name-only">Updated Last Name:</label>
             <input id="update-last-name-only" type="text">
-            <button type="button" id="user-update-last-name-button">Submit</button>
+            <button type="button" id="user-update-last-name-button" class="submit-button">Submit</button>
         </form>
     </div>
 
@@ -154,7 +155,7 @@
             <input id="update-username-id" type="number">
             <label for="update-username">Updated Username</label>
             <input id="update-username" type="test">
-            <button type="button" id="user-update-username-button">Submit</button>
+            <button type="button" id="user-update-username-button" class="submit-button">Submit</button>
         </form>
     </div>
 
@@ -169,7 +170,7 @@
             <input id="update-new-password" type="password">
             <label for="confirm-new-password">Confirm New Password</label>
             <input id="confirm-new-password" type="password">
-            <button type="button" id="user-update-password-button">Submit</button>
+            <button type="button" id="user-update-password-button" class="submit-button">Submit</button>
         </form>
     </div>
 
@@ -180,7 +181,7 @@
             <input id="update-email-id" type="number">
             <label for="update-email">Updated Email</label>
             <input id="updatte-email" type="email">
-            <button type="button" id="user-update-email-button">Submit</button>
+            <button type="button" id="user-update-email-button" class="submit-button">Submit</button>
         </form>
     </div>
 
@@ -198,7 +199,7 @@
                 <option value="4">Hazmat</option>
                 <option value="5">Key Master</option>
             </select>
-            <button type="button" id="user-update-role-button">Submit</button>
+            <button type="button" id="user-update-role-button" class="submit-button">Submit</button>
         </form>
     </div>
     <script src="/JS/main.js"></script>

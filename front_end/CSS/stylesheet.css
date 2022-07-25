@@ -1,3 +1,42 @@
+/* Variables */
+:root {
+    --blue: #006ED0;
+    --green: #5BFC4B;
+    --purple: #B48CFC;
+    --white: #FFFFFF;
+    --black: #000000;
+
+    --large-font: 30pt;
+    --med-font: 18pt;
+    --small-font:12pt;
+
+    --shadow: 3px 3px 5px var(--blue);
+    --hover-shadow: 1px 1px 3px var(--blue);
+    --radius: 5px;
+}
+
+/* Buttons */
+.submit-button {
+    border: 2px solid var(--black);
+    box-shadow: var(--shadow);
+    background-color: var(--white);
+    color: var(--black);
+    font-size: var(--med-font);
+    border-radius: var(--radius);
+}
+
+.submit-button:hover {
+    cursor: pointer;
+    box-shadow: var(--hover-shadow);
+}
+
+
+
+
+
+
+
+
 .hidden-container {
     display: none;
 }

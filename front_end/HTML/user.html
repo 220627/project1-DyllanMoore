@@ -12,39 +12,43 @@
 <body>
     <div class="left-border"></div>    
     <div class="right-border"></div>
-    <div>
-        <img src="/resources/logo_small.png" class="small-logo">
-        <h1>Monsters Inc.</h1>
-        <h2>We scare because we care.</h2>
+    <div class="centered-div">
+        <img src="/resources/logo.png" class="logo">
     </div>
-    <div id="user-reimbursement-options-container">
+    <div id="user-reimbursement-options-container" class="centered-div">
         <h2>What would you like to do?</h2>
-        <form>
-            <select id="user-reimbursement-options">
+        <div id="options-error-div" class="failed"></div>
+            <select id="user-reimbursement-options" class="input small-margin">
                 <option value="0"></option>
                 <option value="1">Create a New Reimbursement</option>
                 <option value="2">View Your Submitted Reimbursements</option>
                 <option value="3">View Your Pending Reimbursements</option>
                 <option value="4">Edit Your User Information</option>
             </select>
+            <br>
             <button type="button" id="user-reimbursement-options-button" class="submit-button">Submit</button>
-        </form>
     </div>
 
     <!-- New Reimbursement -->
-    <div id="create-user-reimbursement-container" class="hidden-container">
-        <h2>Create A New Reimbursement</h2>
+    <div id="create-user-reimbursement-container" class="hidden-container centered-div">
+        <h2>Create A New Reimbursement</h2>    
+        <div id="new-reimbursement-error-div" class="failed"></div>
+        <div id="new-reimbursement-success-div" class="success"></div>
         <form>
-            <label for="create-reimbursement-employee">Employee Number</label>
-            <input id="create-reimbursement-employee" type="number">
-            <label for="create-reimbursement-amount">Reimbursement Amount</label>
-            <input id="create-reimbursement-amount" type="number">
-            <label for="create-reimbursement-description">Reimbursement Description</label>
-            <input id="create-reimbursement-description" type="text">
-            <label for="create-reimbursement-date">Date Submitted</label>
-            <input id="create-reimbursement-date" type="date">
-            <label for="create-reimbursement-type">Which Best Describes Your Reimbursement?</label>
-            <select id="create-reimbursement-type">
+            <label for="create-reimbursement-employee" class="input-label small-margin">Employee Number</label>
+            <input id="create-reimbursement-employee" type="number" class="input small-margin" min="1">
+            <br>
+            <label for="create-reimbursement-amount" class="input-label small-margin">Reimbursement Amount</label>
+            <input id="create-reimbursement-amount" type="number" class="input small-margin">
+            <br>
+            <label for="create-reimbursement-description" class="input-label small-margin">Reimbursement Description</label>
+            <input id="create-reimbursement-description" type="text" class="input small-margin">
+            <br>
+            <label for="create-reimbursement-date" class="input-label small-margin">Date Submitted</label>
+            <input id="create-reimbursement-date" type="date" class="input small-margin">
+            <br>
+            <label for="create-reimbursement-type" class="input-label small-margin">Which Best Describes Your Reimbursement?</label>
+            <select id="create-reimbursement-type" class="input small-margin">
                 <option value="0"></option>
                 <option value="1">Housing</option>
                 <option value="2">Food</option>
@@ -52,19 +56,24 @@
                 <option value="4">Profeesional Development</option>
                 <option value="5">Other</option>
             </select>
-            <label for="create-reimbursement-if-other">If "Other" please describe.</label>
-            <input id="create-reimbursement-if-other" type="text">
+            <br>
+            <label for="create-reimbursement-if-other" class="input-label small-margin">If "Other" please describe.</label>
+            <input id="create-reimbursement-if-other" type="text" class="input small-margin">
+            <br>
             <button type="button" id="create-user-reimbursement-button" class="submit-button">Submit</button>
         </form>
     </div>
 
     <!-- View Reimbursements -->
-    <div id="user-view-all-reimbursements-container" class="hidden-container">
+    <div id="user-view-all-reimbursements-container" class="hidden-container centered-div">
         <h2>All Reimbursements Submitted by You</h2>
-        <label for="get-all-reimbursements-id">Employee ID:</label>
-        <input id="get-all-reimbursements-id" type="number">
-        <button type="button" id="get-all-reimbursements-id-button">Submit</button>
+        <div id="view-reimbursement-choice-error-div" class="failed"></div>
+        <label for="get-all-reimbursements-id" class="input-label small-margin">Employee ID:</label>
+        <input id="get-all-reimbursements-id" type="number" class="input small-margin" min="1">
+        <br>
+        <button type="button" id="get-all-reimbursements-id-button" class="submit-button">Submit</button>
     </div>
+
     <div id="all-reimbursements-container" class="hidden-container">
         <table id="all-reimbursements-table">
             <thead>All Reimbursements Submitted by You</thead>
@@ -82,6 +91,7 @@
     </div>
     <div id="user-view-pending-reimbursements-container" class="hidden-container">
         <h2>Pending Reimbursements Submitted by You</h2>
+        <div id="view-reimbursement-id-error-div" class="failed"></div>
         <label for="get-pending-reimbursements-id">Employee ID:</label>
         <input id="get-pending-reimbursements-id" type="number">
         <button type="button" id="get-pending-reimbursements-button" class="submit-button">Submit</button>
@@ -105,6 +115,7 @@
     <!-- Update User -->
     <div id="user-update-choice-container" class="hidden-container">
         <h2>What would you like to update?</h2>
+        <div id="update-choice-error-div" class="failed"></div>
         <form>
             <select id="user-update-user-choice">
                 <option value="0"></option>

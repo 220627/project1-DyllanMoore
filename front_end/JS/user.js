@@ -9,6 +9,7 @@ const pendingReimbursementsContainer = document.getElementById("pending-reimburs
 //Start Button/Form Functions
 getAllReimbursementsIdButton.addEventListener("click", function() {
     const getAllReimbursementsId = document.getElementById("get-all-reimbursements-id").value;
+    const viewReimbursementChoiceErrorDiv = document.getElementById("view-reimbursement-choice-error-div");
     if(getAllReimbursementsId != 0) {
         fetch("http://localhost:3000/reimbursement")
         .then(response => response.json()) 
@@ -26,11 +27,15 @@ getAllReimbursementsIdButton.addEventListener("click", function() {
             }
         });
         allReimbursementsContainer.style.display = "block";
+    } else {
+        formWarningAppendage.innerHTML = `You must choose your employee ID.`
+        viewReimbursementChoiceErrorDiv.appendChild(formWarningAppendage);
     }
 });
 
 getPendingReimbursementsButton.addEventListener("click", function() {
     const getPendingReimbursementsId = document.getElementById("get-pending-reimbursements-id").value;
+    const viewReimbursementIDErrorDiv = document.getElementById("view-reimbursement-id-error-div");
     if(getPendingReimbursementsId != 0) {
         fetch("http://localhost:3000/reimbursement")
         .then(response => response.json()) 
@@ -50,6 +55,9 @@ getPendingReimbursementsButton.addEventListener("click", function() {
             }
         });
         pendingReimbursementsContainer.style.display = "block";
+    }  else {
+        formWarningAppendage.innerHTML = `You must choose your employee ID.`
+        viewReimbursementIDErrorDiv.appendChild(formWarningAppendage);
     }
 });
 

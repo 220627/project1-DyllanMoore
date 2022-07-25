@@ -31,10 +31,11 @@ const formAcceptedAppendage = document.createElement("form-accepted-appendage");
 //Start Button/Form Functions
 userReimbursementOptionsButton.addEventListener("click", function() {
     const userReimbursementOptions = document.getElementById("user-reimbursement-options");
+    const optionsErrorDiv = document.getElementById("options-error-div")
     switch(userReimbursementOptions.value){
         case "0":
             formWarningAppendage.innerHTML = `You must make a selection.`;
-            userReimbursementOptionsContainer.appendChild(formWarningAppendage);
+            optionsErrorDiv.appendChild(formWarningAppendage);
             break;
         case "1":
             createUserReimbursementContainer.style.display = "block";
@@ -56,6 +57,8 @@ userReimbursementOptionsButton.addEventListener("click", function() {
 });
 
 createUserReimbursementButton.addEventListener("click", function() {
+    const newreimbursementErrorDiv = document.getElementById("new-reimbursement-error-div");
+    const newreimbursementSuccessDiv = document.getElementById("new-reimbursement-success-div");
     const createReimbursementEmployee = document.getElementById("create-reimbursement-employee").value;
     const createReimbursementAmount = document.getElementById("create-reimbursement-amount").value;
     const createReimbursementDescription = document.getElementById("create-reimbursement-description").value;
@@ -78,25 +81,26 @@ createUserReimbursementButton.addEventListener("click", function() {
         .then(function(response) {
             if(response.status === 202) {
                 formAcceptedAppendage.innerHTML = `A reimbursment for ${createReimbursementAmount} was submitted for approval.`;
-                createUserReimbursementContainer.append(formAcceptedAppendage);
+                newreimbursementSuccessDiv.append(formAcceptedAppendage);
             } else {
                 formWarningAppendage.innerHTML = `An error occurred, please try again or contact support.`;
-                createUserReimbursementContainer.append(formWarningAppendage);
+                newreimbursementErrorDiv.append(formWarningAppendage);
             }
         });
         } else {
             formWarningAppendage.innerHTML = `You are missing one or more inputs in your form.`;
-            createUserReimbursementContainer.append(formWarningAppendage);
+            newreimbursementErrorDiv.append(formWarningAppendage);
     }
 });
    
 
 userUpdateChoiceButton.addEventListener("click", function() {
     const userUpdateUserChoice = document.getElementById("user-update-user-choice");
+    const updateChoiceErrorDiv = document.getElementById("update-choice-error-div");
     switch(userUpdateUserChoice.value){
         case "0":
             formWarningAppendage.innerHTML = `You must make a selection.`;
-            userUpdateChoiceContainer.append(formWarningAppendage);
+            updateChoiceErrorDiv.append(formWarningAppendage);
             break;
         case "1":
             userUpdateNameChoiceContainer.style.display = "block";

@@ -5,6 +5,7 @@ const haveAccountButton = document.getElementById("have-account-button");
 //Login Functions
 createSubmitButton.addEventListener("click", function(){
     const newUserAddedDiv = document.getElementById("new-user-added-div");
+    const errorDiv = document.getElementById("error-div");
 
     if(document.getElementById("create-password") === document.getElementById("confirm-create-password")) {
 
@@ -27,13 +28,13 @@ createSubmitButton.addEventListener("click", function(){
                 } else {
                     const newUserError = document.createElement("new-user-error").innerHTML =
                     `An error occurred. Please try again or contact support.`;
-                    newUserAddedDiv.append(newUserError);
+                    errorDiv.append(newUserError);
                 }
         })
     } else {
         const newUserPasswordError = document.createElement("new-user-password-error").innerHTML =
         `Passwords do not match`;
-        newUserAddedDiv.append(newUserPasswordError);
+        errorDiv.append(newUserPasswordError);
     }
 });
 

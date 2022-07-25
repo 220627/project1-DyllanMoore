@@ -79,7 +79,9 @@ body {
 }
 
 .link {
+    color: var(--black);
     font-size: var(--med-font);
+    text-decoration: none;
 }
 
 .link:hover {
@@ -90,6 +92,11 @@ body {
 .failed {
     color: red;
     font-size: var(--med-font);
+}
+
+.success {
+    color: var(--green);
+    font-size: var(--med-font)
 }
 
 /* Inputs & Labels */

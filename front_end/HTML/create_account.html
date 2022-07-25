@@ -14,19 +14,21 @@
         <img src="/resources/logo.png" class="logo">
         <h2>We scare because we care.</h2>
     </div>
-    <div id="new-user-added-div">
-
+    <div id="error-div" class="failed centered-div"></div>
+    <div id="new-user-added-div" class="centered-div success">
     </div>
-    <div>
-        <form>
-            <label for="create-first-name">First Name:</label>
-            <input id="create-first-name" type="text">
-            <label for="create-last-name">Last Name:</label>
-            <input id="create-last-name" type="text">
-            <label for="create-email">Email:</label>
-            <input id="create-email" type="email">
-            <label for="create-role">Job Role:</label>
-            <select id="create-role">
+    <div class="centered-div">
+            <label for="create-first-name" class="input-label small-margin">First Name:</label>
+            <input id="create-first-name" type="text" class="input small-margin">
+            <br>
+            <label for="create-last-name" class="input-label small-margin">Last Name:</label>
+            <input id="create-last-name" type="text" class="input small-margin">
+            <br>
+            <label for="create-email" class="input-label small-margin">Email:</label>
+            <input id="create-email" type="email" class="input small-margin">
+            <br>
+            <label for="create-role" class="input-label small-margin">Job Role:</label>
+            <select id="create-role" class="input small-margin">
                 <option value="blank"></option>
                 <option value="1">Scarer</option>
                 <option value="2">Scarer Assistant</option>
@@ -34,18 +36,22 @@
                 <option value="4">Hazmat</option>
                 <option value="5">Key Master</option>
             </select>
-            <label for="create-username">Username:</label>
-            <input id="create-username" type="text">
-            <label for="create-password">Password:</label>
-            <input id="create-password" type="password">
-            <label for="confirm-create-password">Confirm Password:</label>
-            <input id="confirm-create-password" type="password">
+            <br>
+            <label for="create-username" class="input-label small-margin">Username:</label>
+            <input id="create-username" type="text" class="input small-margin">
+            <br>
+            <label for="create-password" class="input-label small-margin">Password:</label>
+            <input id="create-password" type="password" class="input small-margin">
+            <br>
+            <label for="confirm-create-password" class="input-label small-margin">Confirm Password:</label>
+            <input id="confirm-create-password" type="password" class="input small-margin">
+            <br>
             <button type="button" id="create-submit-button" class="submit-button">Submit</button>
-        </form>
+            <br>
     </div>
-    <div>
-        <a id="have-account-button" href="/HTML/login.html">Already have an account?</a>
+    <div class="centered-div">
+        <a id="have-account-button" href="/HTML/login.html" class="link">Already have an account?</a>
     </div>
-    <script src="/JS/user.js"></script>
+    <script src="/JS/createAccount.js"></script>
 </body>
 </html>

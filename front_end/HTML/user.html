@@ -92,8 +92,9 @@
     <div id="user-view-pending-reimbursements-container" class="hidden-container">
         <h2>Pending Reimbursements Submitted by You</h2>
         <div id="view-reimbursement-id-error-div" class="failed"></div>
-        <label for="get-pending-reimbursements-id">Employee ID:</label>
-        <input id="get-pending-reimbursements-id" type="number">
+        <label for="get-pending-reimbursements-id" class="input-label small-margin">Employee ID:</label>
+        <input id="get-pending-reimbursements-id" type="number" class="input small-margin">
+        <br>
         <button type="button" id="get-pending-reimbursements-button" class="submit-button">Submit</button>
     </div>
     <div id="pending-reimbursements-container" class="hidden-container">
@@ -116,8 +117,7 @@
     <div id="user-update-choice-container" class="hidden-container">
         <h2>What would you like to update?</h2>
         <div id="update-choice-error-div" class="failed"></div>
-        <form>
-            <select id="user-update-user-choice">
+            <select id="user-update-user-choice" class="input small-margin">
                 <option value="0"></option>
                 <option value="1">Name</option>
                 <option value="2">Username</option>
@@ -125,101 +125,102 @@
                 <option value="4">Email</option>
                 <option value="5">Job Role</option>
             </select>
+            <br>
             <button type="button" id="user-update-choice-button" class="submit-button">Submit</button>
-        </form>
     </div>
 
     <div id="user-update-name-choice-container" class="hidden-container">
         <h2>Update User's Name</h2>
         <div id="name-choice-error-div" clas="failed"></div>
-        <form>
-            <select id="user-update-name-choice">
+            <select id="user-update-name-choice" class="input small-margin">
                 <option value="0"></option>
                 <option value="1">First Name</option>
                 <option value="2">Last Name</option>
             </select>
+            <br>
             <button type="button" id="user-update-name-choice-button" class="submit-button">Submit</button>
-        </form>
     </div>
 
     <div id="user-update-first-name-container" class="hidden-container">
         <h2>Update First Name</h2>
         <div id="first-name-error-div" class="failed"></div>
         <div id="first-name-success-div" class="success"></div>
-        <form>
-            <label for="employee-first-name-only-id">Employee ID:</label>
-            <input id="employee-first-name-only-id" type="number">
-            <label for="update-first-name-only">Updated First Name:</label>
-            <input id="update-first-name-only" type="text">
+            <label for="employee-first-name-only-id" class="input-label small-margin">Employee ID:</label>
+            <input id="employee-first-name-only-id" type="number" min="1" class="input- small-margin">
+            <br>
+            <label for="update-first-name-only" class="input-label small-margin">Updated First Name:</label>
+            <input id="update-first-name-only" type="text" class="input small-margin">
+            <br>
             <button type="button" id="user-update-first-name-button" class="submit-button">Submit</button>
-        </form>
     </div>
 
     <div id="user-update-last-name-container" class="hidden-container">
         <h2>Update Last Name</h2>
         <div id="last-name-error-div" class="failed"></div>
         <div id="last-name-success-div" class="success"></div>
-        <form>
-            <label for="employee-last-name-only-id">Employee ID:</label>
-            <input id="employee-last-name-only-id" type="number">
-            <label for="update-last-name-only">Updated Last Name:</label>
-            <input id="update-last-name-only" type="text">
+            <label for="employee-last-name-only-id" class="input-label small-margin">Employee ID:</label>
+            <input id="employee-last-name-only-id" type="number" min="1" class="input small-margin">
+            <br>
+            <label for="update-last-name-only" class="input-label small-margin">Updated Last Name:</label>
+            <input id="update-last-name-only" type="text" class="input small-margin">
+            <br>
             <button type="button" id="user-update-last-name-button" class="submit-button">Submit</button>
-        </form>
     </div>
 
     <div id="user-update-username-container" class="hidden-container">
         <h2>Update Username</h2>
         <div id="username-error-div" class="failed"></div>
         <div id="username-success-div" class="success"></div>
-        <form>
-            <label for="update-username-id">Employee ID:</label>
-            <input id="update-username-id" type="number">
-            <label for="update-username">Updated Username</label>
-            <input id="update-username" type="test">
+            <label for="update-username-id" class="input-label small-margin">Employee ID:</label>
+            <input id="update-username-id" type="number" min="1" class="input small-margin">
+            <br>
+            <label for="update-username" class="input-label small-margin">Updated Username</label>
+            <input id="update-username" type="test" class="input small-margin">
+            <br>
             <button type="button" id="user-update-username-button" class="submit-button">Submit</button>
-        </form>
     </div>
 
     <div id="user-update-password-container" class="hidden-container">
         <h2>Update Password</h2>
         <div id="password-error-div" class="failed"></div>
         <div id="password-success-div" class="success"></div>
-        <form>
-            <label for="update-password-id">Employee ID:</label>
-            <input id="update-password-id" type="number">
-            <label for="update-old-password">Current Password</label>
-            <input id="update-old-password" type="password">
-            <label for="update-new-password">New Password</label>
-            <input id="update-new-password" type="password">
-            <label for="confirm-new-password">Confirm New Password</label>
-            <input id="confirm-new-password" type="password">
+            <label for="update-password-id" class="input-label small-margin">Employee ID:</label>
+            <input id="update-password-id" type="number" min="1" class="input small-margin">
+            <br>
+            <label for="update-old-password" class="input-label small-margin">Current Password</label>
+            <input id="update-old-password" type="password" class="input small-margin">
+            <br>
+            <label for="update-new-password" class="input-label small-margin">New Password</label>
+            <input id="update-new-password" type="password" class="input small-margin">
+            <br>
+            <label for="confirm-new-password" class="input-label small-margin">Confirm New Password</label>
+            <input id="confirm-new-password" type="password" class="input small-margin">
+            <br>
             <button type="button" id="user-update-password-button" class="submit-button">Submit</button>
-        </form>
     </div>
 
     <div id="user-update-email-container" class="hidden-container">
         <h2>Update Email</h2>
         <div id="email-error-div" class="failed"></div>
         <div id="email-success-div" class="success"></div>
-        <form>
-            <label for="update-email-id">Employee ID:</label>
-            <input id="update-email-id" type="number">
-            <label for="update-email">Updated Email</label>
-            <input id="updatte-email" type="email">
+            <label for="update-email-id" class="input-label small-margin">Employee ID:</label>
+            <input id="update-email-id" type="number" min="1" class="input small-margin">
+            <br>
+            <label for="update-email" class="input-label small-margin">Updated Email</label>
+            <input id="updatte-email" type="email" class="input small-margin">
+            <br>
             <button type="button" id="user-update-email-button" class="submit-button">Submit</button>
-        </form>
     </div>
 
     <div id="user-update-role-container" class="hidden-container">
         <h2>Update Job Role</h2>
         <div id="role-error-div" class="failed"></div>
         <div id="role-success-div" class="success"></div>
-        <form>
-            <label for="update-user-role-id">Employee ID:</label>
-            <input id="update-user-role-id" type="number">
-            <label for="update-user-role">Updated Role</label>
-            <select id="update-user-role">
+            <label for="update-user-role-id" class="input-label small-margin">Employee ID:</label>
+            <input id="update-user-role-id" type="number" min="1" class="input small-margin">
+            <br>
+            <label for="update-user-role" class="input-label small-margin">Updated Role</label>
+            <select id="update-user-role" class="input small-margin">
                 <option value="blank"></option>
                 <option value="1">Scarer</option>
                 <option value="2">Scarer Assistant</option>
@@ -227,8 +228,8 @@
                 <option value="4">Hazmat</option>
                 <option value="5">Key Master</option>
             </select>
+            <br>
             <button type="button" id="user-update-role-button" class="submit-button">Submit</button>
-        </form>
     </div>
     <script src="/JS/main.js"></script>
     <script src="/JS/user.js"></script>

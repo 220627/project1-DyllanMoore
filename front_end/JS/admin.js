@@ -50,6 +50,8 @@ updateResolutionButton.addEventListener("click", function() {
     const updatePendingId = document.getElementById("update-pending-id").value;
     const updatePendingResolution = document.getElementById("update-pending-resolution").value;
     const updatePendingResolutionInt = parseInt(document.getElementById("update-pending-resolution").value);
+    const updateReimbursementErrorDiv = document.getElementById("update-reimbursement-error-div");
+    const updateReimbursementSuccessDiv = document.getElementById("update-reimbursement-success-div");
     let resolution;
     if(updatePendingId.length != 0 && updatePendingResolution.length != 0){
         fetch("http://localhost:3000/updateresolution/" + updatePendingId, {
@@ -67,15 +69,15 @@ updateResolutionButton.addEventListener("click", function() {
                         break;
                 }
                 formAcceptedAppendage.innerHTML = `Reimbursement ID # ${updatePendingId} was ${resolution}.`;
-                adminUpdateResolutionContainer.append(formAcceptedAppendage);
+                updateReimbursementSuccessDiv.append(formAcceptedAppendage);
             } else {
                 formWarningAppendage.innerHTML = `An error occured, please try again or contact support.`;
-                adminUpdateResolutionContainer.append(formWarningAppendage);
+                updateReimbursementErrorDiv.append(formWarningAppendage);
             }
         });
     } else {
         formWarningAppendage.innerHTML = `One or more inputs is blank.`;
-        adminUpdateResolutionContainer.append(formWarningAppendage);
+        updateReimbursementErrorDiv.append(formWarningAppendage);
     }
 
 });

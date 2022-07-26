@@ -88,7 +88,6 @@
     </div>
     <div id="admin-pending-reimbursements-container" class="hidden-container centered-div">
         <table id="admin-pending-reimbursements-table">
-            <thead>Pending Reimbursements</thead>
             <tr>
                 <th>ID</th>
                 <th>Amount</th>
@@ -100,12 +99,12 @@
                 <th>Resolution</th>
             </tr>
         </table>
-        <div id="admin-update-resolution-container">
-            <h3>Update Pending Reimbursement Resolution</h3>
+        <div id="admin-update-resolution-container" class="large-top-padding">
+            <h2>Update Pending Reimbursement Resolution</h2>
                 <label for="update-pending-id" class="input-label small-margin">Reimbursement ID:</label>
                 <input id="update-pending-id" type="number" min="1" class="input small-margin">
                 <br>
-                <label for="update-pending-resolution">Resolution:</label>
+                <label for="update-pending-resolution" class="input-label small-margin">Resolution:</label>
                 <select id="update-pending-resolution" class="input small-margin">
                     <option value="0"></option>
                     <option value="2">Approve</option>

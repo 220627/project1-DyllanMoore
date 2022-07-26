@@ -99,6 +99,24 @@ body {
     font-size: var(--med-font)
 }
 
+/* Table */
+table {
+    width: 60vw;
+    padding-left: 10vw;
+    margin-top: 2vh;
+}
+
+th {
+    color: var(--white);
+    background-color: var(--blue);
+    font-size: var(--med-font);
+}
+
+td {
+    font-size: var(--small-font);
+    border-bottom: 2px solid var(--purple);
+}
+
 /* Inputs & Labels */
 .input {
     font-size: var(--med-font);

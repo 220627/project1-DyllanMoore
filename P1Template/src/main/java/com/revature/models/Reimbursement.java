@@ -48,6 +48,19 @@ public class Reimbursement {
 		this.reimbursement_resolver = reimbursement_resolver;
 		this.reimbursement_resolution = reimbursement_resolution;
 	}
+	
+	public Reimbursement(int reimbursement_amount, String reimbursement_submitted, String reimbursement_description,
+			int reimbursement_type_fk, int reimbursement_author_fk, int reimbursement_resolver_fk,
+			int reimbursement_resolution_fk) {
+		super();
+		this.reimbursement_amount = reimbursement_amount;
+		this.reimbursement_submitted = reimbursement_submitted;
+		this.reimbursement_description = reimbursement_description;
+		this.reimbursement_type_fk = reimbursement_type_fk;
+		this.reimbursement_author_fk = reimbursement_author_fk;
+		this.reimbursement_resolver_fk = reimbursement_resolver_fk;
+		this.reimbursement_resolution_fk = reimbursement_resolution_fk;
+	}
 
 	@Override
 	public String toString() {

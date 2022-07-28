@@ -3,7 +3,9 @@ package com.revature;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import com.revature.controllers.AdminAuthController;
 import com.revature.controllers.ReimbursementController;
+import com.revature.controllers.UserAuthController;
 import com.revature.controllers.UserController;
 import com.revature.utils.ConnectionUtil;
 
@@ -28,6 +30,8 @@ public class Launcher {
 		
 		ReimbursementController rc = new ReimbursementController();
 		UserController uc = new UserController();
+		UserAuthController uac = new UserAuthController();
+		AdminAuthController aac = new AdminAuthController();
 		
 		
 		//Reimbursement Actions
@@ -44,6 +48,10 @@ public class Launcher {
 		app.put("/uasername/:userId", uc.updateUserUsernameHandler);
 		app.put("/role/:userId", uc.updateUserRoleHandler);
 		app.get("/user", uc.getUserHandler);
+		
+		//Login Actions
+		app.post("/userlogin", uac.userLoginHandler);
+		app.post("/adminlogin", aac.adminLoginHandler);
 		
 	}
 	

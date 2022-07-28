@@ -22,13 +22,8 @@ public class AuthDAO implements AuthDAOInterface{
 			
 			if(rs.next()) {
 				User u = new User(
-						rs.getInt("user_id"),
-						rs.getString("first_name"),
-						rs.getString("last_name"),
 						rs.getString("username"),
-						rs.getString("password"),
-						rs.getString("email"),
-						rs.getInt("user_role_fk")
+						rs.getString("password")
 						);
 				return u;
 			}

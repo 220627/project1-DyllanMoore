@@ -37,7 +37,6 @@ public class Launcher {
 		
 		//User Actions
 		app.post("/newuser", uc.insertUserHandler);
-		app.delete("/:user", uc.deleteUserHandler);
 		app.put("/firstname/:userId", uc.updateUserFirstNameHandler);
 		app.put("/lastname/:userId", uc.updateUserLastNameHandler);
 		app.put("/useremail/:userId", uc.updateUserEmailHandler);

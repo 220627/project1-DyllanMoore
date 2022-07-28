@@ -9,16 +9,17 @@ import com.revature.services.AuthServices;
 
 import io.javalin.http.Handler;
 
-public class AuthController {
+public class UserAuthController {
 
 	AuthServices as = new AuthServices();
 	static HttpSession ses;
-	public Handler loginHandler = (ctx) -> {
+	
+	public Handler userLoginHandler = (ctx) -> {
 		String body = ctx.body();
 		Gson gson = new Gson();
 		
 		LoginDTO lDTO = gson.fromJson(body, LoginDTO.class);
-		User user = as.login(lDTO.getUsername(), lDTO.getPassword());
+		User user = as.userLogin(lDTO.getUsername(), lDTO.getPassword());
 		if(user != null) {
 			ses = ctx.req.getSession();
 			String userJSON = gson.toJson(user);

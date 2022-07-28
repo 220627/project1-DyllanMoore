@@ -27,16 +27,6 @@ public class UserController {
 		
 	};
 	
-	//Delete User
-	public Handler deleteUserHandler = (ctx) -> {
-		int userId = Integer.parseInt(ctx.pathParam("user"));
-		uDAO.deleteUser(userId);
-		
-		ctx.result(userId + " has been removed from the Monsters Inc Database.");
-		ctx.status(202);
-		
-	};
-	
 	//Update User Information
 	public Handler updateUserFirstNameHandler = (ctx) -> {
 		int userId = Integer.parseInt(ctx.pathParam("userId"));

@@ -7,7 +7,14 @@ public class AuthServices {
 
 	AuthDAO authDAO = new AuthDAO();
 	
-	public User login(String username, String password) {
+	public User userLogin(String username, String password) {
+		if (authDAO.userLogin(username, password) != null) {
+			return authDAO.userLogin(username, password);
+		}
+		return null;
+	}
+	
+	public User adminLogin(String username, String password) {
 		if (authDAO.userLogin(username, password) != null) {
 			return authDAO.userLogin(username, password);
 		}

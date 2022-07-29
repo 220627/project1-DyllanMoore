@@ -17,6 +17,42 @@ getAllReimbursementsIdButton.addEventListener("click", function() {
             const allReimbursementsTable = document.getElementById("all-reimbursements-table");
             for(let i = 0; i < data.length; i++){
                 let dataArray = Object.values(data[i]);
+                switch(dataArray[4]){
+                    case 1:
+                        dataArray.splice(4, 4, "Housing");
+                        break;
+                    case 2:
+                        dataArray.splice(4, 4, "Food");
+                        break;
+                    case 3:
+                        dataArray.splice(4, 4, "Travel");
+                        break;
+                    case 4: 
+                        dataArray.splice(4, 4, "Professional Development");
+                        break;
+                    case 5:
+                        dataArray.splice(4, 4, "Other");
+                        break;
+                }
+                switch(dataArray[6]){
+                    case 6:
+                        dataArray.splice(6, 6, "Pending");
+                        break;
+                    case 2:
+                        dataArray.splice(6, 6, "Roz");
+                        break;
+                }
+                switch(dataArray[7]){
+                    case 1:
+                        dataArray.splice(7, 7, "Pending");
+                        break;
+                    case 2: 
+                        dataArray.splice(7, 7, "Approved");
+                        break;
+                    case 3: 
+                        dataArray.splice(7, 7, "Denied");
+                        break;
+                }
                 let newReimbursementTableRow = allReimbursementsTable.insertRow(allReimbursementsTable.length);  
                 if (getAllReimbursementsId == dataArray[5]) {
                     for(let j = 0; j < 8; j++){
@@ -43,9 +79,45 @@ getPendingReimbursementsButton.addEventListener("click", function() {
             const pendingReimbursementsTable = document.getElementById("pending-reimbursements-table");
             for(let i = 0; i < data.length; i++){
                 let dataArray = Object.values(data[i]);
+                switch(dataArray[4]){
+                    case 1:
+                        dataArray.splice(4, 4, "Housing");
+                        break;
+                    case 2:
+                        dataArray.splice(4, 4, "Food");
+                        break;
+                    case 3:
+                        dataArray.splice(4, 4, "Travel");
+                        break;
+                    case 4: 
+                        dataArray.splice(4, 4, "Professional Development");
+                        break;
+                    case 5:
+                        dataArray.splice(4, 4, "Other");
+                        break;
+                }
+                switch(dataArray[6]){
+                    case 6:
+                        dataArray.splice(6, 6, "Pending");
+                        break;
+                    case 2:
+                        dataArray.splice(6, 6, "Roz");
+                        break;
+                }
+                switch(dataArray[7]){
+                    case 1:
+                        dataArray.splice(7, 7, "Pending");
+                        break;
+                    case 2: 
+                        dataArray.splice(7, 7, "Approved");
+                        break;
+                    case 3: 
+                        dataArray.splice(7, 7, "Denied");
+                        break;
+                }
                 let newReimbursementTableRow = pendingReimbursementsTable.insertRow(pendingReimbursementsTable.length);  
                 if (getPendingReimbursementsId == dataArray[5]) {
-                    if(dataArray[7] === 1){
+                    if(dataArray[7] === "Pending"){
                         for(let j = 0; j < 8; j++){
                             let newReimbursementTableData = newReimbursementTableRow.insertCell(j);
                             newReimbursementTableData.innerHTML = dataArray[j];

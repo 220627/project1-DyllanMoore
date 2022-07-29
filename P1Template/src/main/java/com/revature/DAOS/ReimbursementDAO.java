@@ -105,7 +105,7 @@ public class ReimbursementDAO implements ReimbursementDAOInterface{
 				ReimbursementTypeDAO rtDAO = new ReimbursementTypeDAO();
 				ReimbursementType rt = rtDAO.getTypeById(reimbursement_type_fk);
 				r.setReimbursement_type(rt);
-				r.setReimbursement_resolution_fk(reimbursement_type_fk);
+				r.setReimbursement_type_fk(reimbursement_type_fk);
 
 				int reimbursement_author_fk = rs.getInt("reimbursement_author_fk");
 				ReimbursementAuthorDAO raDAO = new ReimbursementAuthorDAO();

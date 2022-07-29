@@ -9,6 +9,7 @@ const userUpdateUsernameButton = document.getElementById("user-update-username-b
 const userUpdatePasswordButton = document.getElementById("user-update-password-button");
 const userUpdateEmailButton = document.getElementById("user-update-email-button");
 const userUpdateRoleButton = document.getElementById("user-update-role-button");
+const headerRefresh = document.getElementById("header-refresh");
 
 //Hidden Div Containers
 const userReimbursementOptionsContainer = document.getElementById("user-reimbursement-options-container");
@@ -27,6 +28,11 @@ const userViewPendingReimbursementsContainer = document.getElementById("user-vie
 //Appendage Consts 
 const formWarningAppendage = document.createElement("form-warning-appendage");
 const formAcceptedAppendage = document.createElement("form-accepted-appendage");
+
+//Refresh Page (home)
+headerRefresh.addEventListener("click", function() {
+    window.location.reload();
+});
 
 //Start Button/Form Functions
 userReimbursementOptionsButton.addEventListener("click", function() {
@@ -75,7 +81,7 @@ createUserReimbursementButton.addEventListener("click", function() {
                 "reimbursement_type_fk": createReimbursemntType,
                 "reimbursement_author_fk": createReimbursementEmployee,
                 "reimbursement_resolver_fk": 6,
-                "reimbursement_status_fk": 1
+                "reimbursement_resolution_fk": 1
             })
         })
         .then(function(response) {

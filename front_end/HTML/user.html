@@ -13,7 +13,7 @@
     <div class="left-border"></div>    
     <div class="right-border"></div>
     <div class="centered-div">
-        <img src="/resources/logo.png" class="logo">
+        <img src="/resources/logo.png" class="logo" id="header-refresh">
     </div>
     <div id="user-reimbursement-options-container" class="centered-div">
         <h2>What would you like to do?</h2>
@@ -45,7 +45,7 @@
             <input id="create-reimbursement-description" type="text" class="input small-margin">
             <br>
             <label for="create-reimbursement-date" class="input-label small-margin">Date Submitted</label>
-            <input id="create-reimbursement-date" type="date" class="input small-margin">
+            <input id="create-reimbursement-date" type="text" class="input small-margin" placeholder="MM/DD/YYYY">
             <br>
             <label for="create-reimbursement-type" class="input-label small-margin">Which Best Describes Your Reimbursement?</label>
             <select id="create-reimbursement-type" class="input small-margin">
@@ -53,7 +53,7 @@
                 <option value="1">Housing</option>
                 <option value="2">Food</option>
                 <option value="3">Travel</option>
-                <option value="4">Profeesional Development</option>
+                <option value="4">Professional Development</option>
                 <option value="5">Other</option>
             </select>
             <br>

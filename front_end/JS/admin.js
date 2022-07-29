@@ -124,6 +124,7 @@ updateResolutionButton.addEventListener("click", function() {
     const updatePendingResolutionInt = parseInt(document.getElementById("update-pending-resolution").value);
     const updateReimbursementErrorDiv = document.getElementById("update-reimbursement-error-div");
     const updateReimbursementSuccessDiv = document.getElementById("update-reimbursement-success-div");
+    adminId = document.getElementById("admin-id");
     let resolution;
     if(updatePendingId.length != 0 && updatePendingResolution.length != 0){
         fetch("http://localhost:3000/updateresolution/" + updatePendingId, {
@@ -151,7 +152,6 @@ updateResolutionButton.addEventListener("click", function() {
         formWarningAppendage.innerHTML = `One or more inputs is blank.`;
         updateReimbursementErrorDiv.append(formWarningAppendage);
     }
-
 });
 
 //End Button/Form Functions

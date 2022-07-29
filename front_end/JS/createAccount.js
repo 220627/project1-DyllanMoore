@@ -7,7 +7,7 @@ createSubmitButton.addEventListener("click", function(){
     const newUserAddedDiv = document.getElementById("new-user-added-div");
     const errorDiv = document.getElementById("error-div");
 
-    if(document.getElementById("create-password") === document.getElementById("confirm-create-password")) {
+    if(document.getElementById("create-password").value === document.getElementById("confirm-create-password").value) {
 
         fetch("http://localhost:3000/newuser", {
             method: 'POST',

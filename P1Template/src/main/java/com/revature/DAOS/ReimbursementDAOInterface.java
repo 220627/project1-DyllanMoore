@@ -10,7 +10,7 @@ public interface ReimbursementDAOInterface {
 	
 	//Update Reimbursement
 	boolean updateReimbursementResolution(int reimbursementId, int resolution);
-	
+		
 	//Delete Reimbursement
 	public void deleteReimbursement(int reimbursementId);
 	

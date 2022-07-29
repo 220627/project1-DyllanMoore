@@ -107,7 +107,7 @@ userUpdateChoiceButton.addEventListener("click", function() {
             userUpdateChoiceContainer.style.display = "none";
             break;
         case "2":
-            userUpdateUsernameContaienr.style.display = "block";
+            userUpdateUsernameContainer.style.display = "block";
             userUpdateChoiceContainer.style.display = "none";
             break;
         case "3":

@@ -119,6 +119,8 @@ th {
 td {
     font-size: var(--small-font);
     border-bottom: 2px solid var(--purple);
+    padding: .5vh 1vw;
+    text-align: center;
 }
 
 /* Inputs & Labels */

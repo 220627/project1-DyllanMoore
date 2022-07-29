@@ -19,38 +19,38 @@ getAllReimbursementsIdButton.addEventListener("click", function() {
                 let dataArray = Object.values(data[i]);
                 switch(dataArray[4]){
                     case 1:
-                        dataArray.splice(4, 4, "Housing");
+                        dataArray.splice(4, 1, "Housing");
                         break;
                     case 2:
-                        dataArray.splice(4, 4, "Food");
+                        dataArray.splice(4, 1, "Food");
                         break;
                     case 3:
-                        dataArray.splice(4, 4, "Travel");
+                        dataArray.splice(4, 1, "Travel");
                         break;
                     case 4: 
-                        dataArray.splice(4, 4, "Professional Development");
+                        dataArray.splice(4, 1, "Professional Development");
                         break;
                     case 5:
-                        dataArray.splice(4, 4, "Other");
+                        dataArray.splice(4, 1, "Other");
                         break;
                 }
                 switch(dataArray[6]){
                     case 6:
-                        dataArray.splice(6, 6, "Pending");
+                        dataArray.splice(6, 1, "Pending");
                         break;
                     case 2:
-                        dataArray.splice(6, 6, "Roz");
+                        dataArray.splice(6, 1, "Roz");
                         break;
                 }
                 switch(dataArray[7]){
                     case 1:
-                        dataArray.splice(7, 7, "Pending");
+                        dataArray.splice(7, 1, "Pending");
                         break;
                     case 2: 
-                        dataArray.splice(7, 7, "Approved");
+                        dataArray.splice(7, 1, "Approved");
                         break;
                     case 3: 
-                        dataArray.splice(7, 7, "Denied");
+                        dataArray.splice(7, 1, "Denied");
                         break;
                 }
                 let newReimbursementTableRow = allReimbursementsTable.insertRow(allReimbursementsTable.length);  
@@ -81,38 +81,38 @@ getPendingReimbursementsButton.addEventListener("click", function() {
                 let dataArray = Object.values(data[i]);
                 switch(dataArray[4]){
                     case 1:
-                        dataArray.splice(4, 4, "Housing");
+                        dataArray.splice(4, 1, "Housing");
                         break;
                     case 2:
-                        dataArray.splice(4, 4, "Food");
+                        dataArray.splice(4, 1, "Food");
                         break;
                     case 3:
-                        dataArray.splice(4, 4, "Travel");
+                        dataArray.splice(4, 1, "Travel");
                         break;
                     case 4: 
-                        dataArray.splice(4, 4, "Professional Development");
+                        dataArray.splice(4, 1, "Professional Development");
                         break;
                     case 5:
-                        dataArray.splice(4, 4, "Other");
+                        dataArray.splice(4, 1, "Other");
                         break;
                 }
                 switch(dataArray[6]){
                     case 6:
-                        dataArray.splice(6, 6, "Pending");
+                        dataArray.splice(6, 1, "Pending");
                         break;
                     case 2:
-                        dataArray.splice(6, 6, "Roz");
+                        dataArray.splice(6, 1, "Roz");
                         break;
                 }
                 switch(dataArray[7]){
                     case 1:
-                        dataArray.splice(7, 7, "Pending");
+                        dataArray.splice(7, 1, "Pending");
                         break;
                     case 2: 
-                        dataArray.splice(7, 7, "Approved");
+                        dataArray.splice(7, 1, "Approved");
                         break;
                     case 3: 
-                        dataArray.splice(7, 7, "Denied");
+                        dataArray.splice(7, 1, "Denied");
                         break;
                 }
                 let newReimbursementTableRow = pendingReimbursementsTable.insertRow(pendingReimbursementsTable.length);  
